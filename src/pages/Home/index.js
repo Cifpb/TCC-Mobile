@@ -12,13 +12,13 @@ export default function Home() {
         <View style={styles.container}>
             <View style={styles.header}></View>
             <View style={styles.produto}>
-                <Image source={require('../../assets/projetosG.png')} style={styles.projetosG} />
-                <View style={styles.pai}>
-                    <View>
+                <Image source={require('../../assets/projetosG.png')} style={styles.imagemProd} />
+                <View style={styles.caixapai}>
+                    <View style={styles.caixaE}>
                         <Text style={styles.catTexto}>Mídia Visual</Text>
                         <Text style={styles.subTexto}>Projetos Gráficos</Text>
                     </View>
-                    <View>
+                    <View style={styles.caixaD}>
                         <View style={styles.icones}>
                             <TouchableOpacity onPress={() => 0}>
                                 <Feather name="trash-2" size={18} color="white" />
@@ -31,7 +31,7 @@ export default function Home() {
                             <TouchableOpacity>
                                 <Text style={styles.buttonText}>R$ 1000,00</Text>
                             </TouchableOpacity>
-                        </LinearGradient>
+                        </LinearGradient> 
                     </View>
                 </View>
             </View>
@@ -43,6 +43,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#000',
+        padding: 10,
     },
     produto: {
         width: '100%',
@@ -50,41 +51,50 @@ const styles = StyleSheet.create({
         borderRadius: 20,
         boxShadow: '0px 8px 20px rgba(0, 0, 0, 0.2)',
         margin: 2,
-        padding: 5,
     },
-    projetosG: {
+    imagemProd: {
         width: '100%',
-        resizeMode: "contain"
+        height: 150,
+        marginTop: 4,
+        alignItems: 'center',
+        resizeMode: 'contain',
     },
-    pai: {
+    caixapai: {
+        marginTop: 2,
         flexDirection: 'row',
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
+    },
+    caixaE: {
+        paddingLeft: 25,
+        marginBottom: 15,
+    },
+    caixaD: {
+        paddingRight: 25,
+        marginBottom: 15,
     },
     catTexto: {
         fontSize: 20,
-        marginTop: 15,
-        color: 'white',
+        color: '#FFD54F',
         fontWeight: 'bold',
-        textAlign: 'left',
-        paddingLeft: 10,
     },
     subTexto: {
         fontSize: 16,
         color: '#ccc',
-        textAlign: 'left',
-        paddingLeft: 10,
+        marginTop: 2,
     },
     icones: {
-        width: 70,
+        paddingLeft: 50,
+        width: 117,
+        marginBottom: 12,
         flexDirection: 'row',
         justifyContent: 'space-between',
     },
     button: {
-        marginTop: 16,
+        marginTop: 2,
         padding: 4,
-        borderRadius: 15,
+        borderRadius: 10,
         width: 120,
-        alignItems: 'center'
+        alignItems: 'center',
     },
     buttonText: {
         color: '#414141',

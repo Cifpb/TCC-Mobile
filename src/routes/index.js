@@ -3,6 +3,7 @@ import Welcome from "../pages/welcome";
 import SignIn from "../pages/Signin";
 import Register from "../pages/Register";
 import Home from "../pages/Home";
+import Reset from "../pages/ResetPassaword";
 
 const Stack = createNativeStackNavigator();
 
@@ -27,6 +28,11 @@ export default function Routes() {
         <Stack.Screen
          name="Home"
          component={Home}
+         options={{headerShown: false}}
+        />
+          <Stack.Screen
+         name="Reset"
+         component={Reset}
          options={{headerShown: false}}
         />
         </Stack.Navigator>

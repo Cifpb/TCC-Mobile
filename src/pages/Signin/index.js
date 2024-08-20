@@ -25,10 +25,13 @@ export default function SignIn() {
                     secureTextEntry
                 />
                 <TouchableOpacity style={styles.button} onPress={() => navegation.navigate('Home')}>
-                    <Text style={styles.buttonText}>Acessar</Text>
+                    <Text style={styles.buttonText}>Enviar</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.buttonRegister} onPress={() => navegation.navigate('Register')}>
                     <Text style={styles.registerText}>Não possui uma conta? Cadastre-se</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.buttonRegister} onPress={() => navegation.navigate('Reset')}>
+                    <Text style={styles.registerText}>Reset</Text>
                 </TouchableOpacity>
         
             </Animatable.View>

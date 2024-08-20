@@ -11,7 +11,7 @@ export default function Home() {
     return (
         <View style={styles.container}>
             <View style={styles.header}></View>
-            <View style={styles.produto}>
+            <Animatable.View animation="fadeInUp" delay={300} style={styles.produto}>
                 <Image source={require('../../assets/projetosG.png')} style={styles.imagemProd} />
                 <View style={styles.caixapai}>
                     <View style={styles.caixaE}>
@@ -34,7 +34,7 @@ export default function Home() {
                         </LinearGradient> 
                     </View>
                 </View>
-            </View>
+            </Animatable.View>
         </View>
     );
 }

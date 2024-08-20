@@ -24,15 +24,13 @@ export default function SignIn() {
                     style={styles.input}
                     secureTextEntry
                 />
-                <TouchableOpacity style={styles.button}>
+                <TouchableOpacity style={styles.button} onPress={() => navegation.navigate('Home')}>
                     <Text style={styles.buttonText}>Acessar</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.buttonRegister} onPress={() => navegation.navigate('Register')}>
                     <Text style={styles.registerText}>Não possui uma conta? Cadastre-se</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.buttonRegister} onPress={() => navegation.navigate('Home')}>
-                    <Text style={styles.registerText}>Entrar no Home? Home</Text>
-                </TouchableOpacity>
+        
             </Animatable.View>
         </View>
     );

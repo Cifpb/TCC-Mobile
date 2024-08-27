@@ -2,15 +2,21 @@ import React from "react";
 import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
 import * as Animatable from "react-native-animatable";
 import { useNavigation } from "@react-navigation/native";
+import { useEffect, useRef } from 'react';
 
 export default function Welcome() {
     const navegation = useNavigation();
+    const imgRef = useRef(null);
+
+    useEffect(() => imgRef.current.startAnimation(500, 0, () => { }), []);
+
     return (
         <View style={styles.container}>
             <View style={styles.content}>
                 <Animatable.Image
                     animation="flipInY"
                     delay={900}
+                    ref={r => imgRef.current = r}
                     source={require('../../assets/logo.png')}
                     style={styles.logo}
                     resizeMode="contain"

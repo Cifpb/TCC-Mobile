@@ -91,6 +91,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
     },
+    
     buttonText: {
         color: '#161413',
         fontSize: 18,

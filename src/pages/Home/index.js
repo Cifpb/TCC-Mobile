@@ -12,7 +12,7 @@ export default function Home() {
         <View style={styles.container}>
             <View style={styles.header}></View>
             <Animatable.View animation="fadeInUp" delay={300} style={styles.produto}>
-                <Image source={require('../../assets/projetosG.png')} style={styles.imagemProd} />
+                <Image source={require('../../assets/projetosP.png')} style={styles.imagemProd} />
                 <View style={styles.caixapai}>
                     <View style={styles.caixaE}>
                         <Text style={styles.catTexto}>Mídia Visual</Text>

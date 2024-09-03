@@ -24,16 +24,17 @@ export default function SignIn() {
                     style={styles.input}
                     secureTextEntry
                 />
+                 <TouchableOpacity style={styles.buttonSenha} onPress={() => navegation.navigate('Reset')}>
+                    <Text style={styles.registerText}>Esqueceu Senha</Text>
+                </TouchableOpacity>
+        
                 <TouchableOpacity style={styles.button} onPress={() => navegation.navigate('Home')}>
                     <Text style={styles.buttonText}>Enviar</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.buttonRegister} onPress={() => navegation.navigate('Register')}>
                     <Text style={styles.registerText}>Não possui uma conta? Cadastre-se</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.buttonRegister} onPress={() => navegation.navigate('Reset')}>
-                    <Text style={styles.registerText}>Reset</Text>
-                </TouchableOpacity>
-        
+               
             </Animatable.View>
         </View>
     );
@@ -103,5 +104,9 @@ const styles = StyleSheet.create({
     },
     registerText: {
         color: '#cfa62d'
+    },
+    buttonSenha:{
+        marginTop: 14,
+        
     }
 });

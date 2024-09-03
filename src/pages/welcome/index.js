@@ -24,7 +24,7 @@ export default function Welcome() {
                 <Animatable.Text delay={600} animation="fadeInUp" style={styles.title}>Seja Bem Vindo(a)</Animatable.Text>
                 <Animatable.Text delay={600} animation="fadeInUp" style={styles.text}>Faça o login para começar</Animatable.Text>
                 <Animatable.View delay={600} animation="fadeInUp">
-                    <TouchableOpacity style={styles.button} onPress={()=>navegation.navigate('SignIn')}>
+                    <TouchableOpacity style={styles.button} onPress={() => navegation.navigate('SignIn')}>
                         <Text style={styles.buttonText}>Acessar</Text>
                     </TouchableOpacity>
                 </Animatable.View>

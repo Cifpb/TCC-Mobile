@@ -4,9 +4,13 @@ import { View,Text,StyleSheet, TextInput,TouchableOpacity, StatusBar } from "rea
 import { LinearGradient } from 'expo-linear-gradient';
 import { useNavigation } from "@react-navigation/native";
 import * as Animatable from 'react-native-animatable';
+import {TextInputMask} from 'react-native-masked-text';
+
 export default function Register() {
     const [email, setEmail] = useState("");
     const [valid, setValid] = useState("");
+    const [cell, setCell] = useState('');
+    const [cpf, setCpf] = useState('');
 
     useEffect(() => {
       const validateEmail = (email) => {
@@ -38,6 +42,34 @@ export default function Register() {
               placeholderTextColor={"#b08504"}
               value={email}
               onChangeText={text => setEmail(text)}/>
+            </View>
+            <View style={styles.textInputContainer} >
+              <Text style={styles.textInputLabel}>Telefone</Text>
+              <TextInputMask 
+              style={styles.telefInput}
+              placeholder="+00 00 0000-0000"
+              placeholderTextColor={"#b08504"}
+              type= {'cel-phone'}
+              options={{
+                maskType:'BRL',
+                withDDD: true,
+                dddMask:'(99) '
+              }}
+              value={cell}
+              onChangeText={text => setCell(text)}
+              />
+            </View>
+            <View style={styles.textInputContainer} >
+              <Text style={styles.textInputLabel}>CPF</Text>
+              <TextInputMask 
+              style={styles.cpfInput}
+              placeholder="000.000.000-00"
+              placeholderTextColor={"#b08504"}
+              type= {'cpf'}
+
+              value={cpf}
+              onChangeText={text => setCpf(text)}
+              />
             </View>
             <View style={styles.textInputContainer} >
               <Text style={styles.textInputLabel}>Senha</Text>
@@ -86,7 +118,7 @@ const styles = StyleSheet.create({
   },
 
   viewCentral: {
-    height: 500,
+    height: 600,
     width: 350,
     borderWidth: 5,
     borderColor: "#F2B707",
@@ -133,7 +165,19 @@ const styles = StyleSheet.create({
   },
   iconUser:{
     position: 'absolute',
-    top: '15%',
+    top: '9%',
+  }, 
+  telefInput:{
+    backgroundColor: "#2e2d2d",
+    color: '#ffffff',
+    borderRadius: 10,
+    padding: 8
+  },
+  cpfInput:{
+    backgroundColor: "#2e2d2d",
+    color: '#ffffff',
+    borderRadius: 10,
+    padding: 8
   }
 
 });

@@ -14,7 +14,6 @@ const data = [
   { label: 'Item 8', value: '8' },
 ];
 
-
 const Work = () => {
   const [value, setValue] = useState(null);
   const [isFocus, setIsFocus] = useState(false);
@@ -44,12 +43,16 @@ const Work = () => {
           setValue(item.value);
           setIsFocus(false);
         }}
-        dropdownStyle={styles.dropdownOpenedStyle}
+        dropdownStyle={styles.dropdownOpenedStyle} // Estilo do dropdown aberto
+        renderItem={(item) => (
+          <View style={styles.itemContainer}>
+            <Text style={styles.itemText}>{item.label}</Text>
+          </View>
+        )}
       />
         <TextInput style={styles.textInput}
               placeholder="Subcategoria"
               placeholderTextColor={"#b08504"}/>
-
 
          <Dropdown
         style={[styles.dropdown, isFocus && { borderColor: '#F2B707' }]}
@@ -84,8 +87,8 @@ const styles = StyleSheet.create({
     marginTop: '10%',
     backgroundColor: 'black',
     padding: 16,
-    alignContent:'center',
-    flex: 1
+    alignContent: 'center',
+    flex: 1,
   },
   dropdown: {
     height: 50,
@@ -95,59 +98,57 @@ const styles = StyleSheet.create({
     paddingHorizontal: 8,
     marginBottom: 10,
   },
-  dropdownOpenedStyle:{
-    backgroundColor: 'black',
-    borderColor: '#b08504'
+  dropdownOpenedStyle: {
+    backgroundColor: 'black', // Fundo preto quando dropdown abre
   },
- 
-  quadrado:{
+  itemContainer: {
+    backgroundColor: 'black', // Cor de fundo preta para cada item do dropdown
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+  },
+  itemText: {
+    color: 'white', // Cor do texto branco para cada item
+    fontSize: 16,
+  },
+  selectedTextStyle: {
+    fontSize: 16,
+    color: 'white', // Texto selecionado em branco
+  },
+  inputSearchStyle: {
+    height: 40,
+    fontSize: 16,
+    color: 'white', // Texto do campo de busca branco
+    backgroundColor: 'black', // Fundo preto no campo de busca
+  },
+  quadrado: {
     borderWidth: 2,
     borderColor: '#F2B707',
     padding: 10,
     borderRadius: 8,
-    height: 400
+    height: 400,
   },
-  inf:{
+  inf: {
     color: 'white',
     fontSize: 16,
-    padding: '2%'
-  },
-
-  label: {
-    position: 'absolute',
-    backgroundColor: 'white',
-    left: 22,
-    top: 8,
-    zIndex: 999,
-    paddingHorizontal: 8,
-    fontSize: 14,
+    padding: '2%',
   },
   placeholderStyle: {
     fontSize: 16,
-    color:'#b08504'
-  },
-  selectedTextStyle: {
-    fontSize: 16,
+    color: '#b08504',
   },
   iconStyle: {
     width: 20,
     height: 20,
   },
-  inputSearchStyle: {
-    height: 40,
-    fontSize: 16,
-  },
   textInput: {
-    backgroundColor: "black",
+    backgroundColor: 'black',
     color: 'white',
     borderRadius: 10,
-    borderColor:'#b08504',
+    borderColor: '#b08504',
     borderWidth: 0.5,
     padding: 10,
     marginBottom: 10,
-    height:50,
-    fontSize: 16
+    height: 50,
+    fontSize: 16,
   },
 });
-
-

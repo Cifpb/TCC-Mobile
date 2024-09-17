@@ -37,7 +37,7 @@ const parc = [
 ];
 
 
-const Work = () => {
+const Product = () => {
   const [value, setValue] = useState(null);
   const [isFocus, setIsFocus] = useState(false);
   const [money,setMoney] = useState('');
@@ -155,7 +155,7 @@ const Work = () => {
 };
 
 
-export default Work;
+export default Product;
 
 const styles = StyleSheet.create({
 

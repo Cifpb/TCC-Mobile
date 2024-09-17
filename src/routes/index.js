@@ -5,6 +5,7 @@ import Register from "../pages/Register";
 import Home from "../pages/Home";
 import Reset from "../pages/ResetPassaword";
 import Work from "../pages/Work";
+import Requests from "../pages/Requests";
 
 const Stack = createNativeStackNavigator();
 
@@ -39,6 +40,11 @@ export default function Routes() {
           <Stack.Screen
          name="Work"
          component={Work}
+         options={{headerShown: false}}
+        />
+           <Stack.Screen
+         name="Requests"
+         component={Requests}
          options={{headerShown: false}}
         />
         </Stack.Navigator>

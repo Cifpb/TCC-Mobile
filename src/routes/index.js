@@ -4,7 +4,7 @@ import SignIn from "../pages/Signin";
 import Register from "../pages/Register";
 import Home from "../pages/Home";
 import Reset from "../pages/ResetPassaword";
-import Work from "../pages/product";
+import Product from "../pages/product";
 import Requests from "../pages/Requests";
 
 const Stack = createNativeStackNavigator();

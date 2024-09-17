@@ -18,7 +18,7 @@ export const produtos = [
         imgS5: require('../../assets/produtos/img-virgens/projetosG.png'),
         imgS6: require('../../assets/produtos/img-virgens/projetosG.png'),
         category: 'MÍDIA Visual',
-        subCategory: 'Logotipo/Identidade Visual',
+        subCategory: 'Logotipo',
         promotion: "",
         price: '800,00'
     },
@@ -309,13 +309,13 @@ const styles = StyleSheet.create({
         flexWrap:"nowrap"
     },
     imgPrin: {
-        width: 200,
-        height: 200,
+        width: 150,
+        height: 150,
         resizeMode: 'contain',
         borderRadius: 100,  
         borderWidth: 2,  // adiciona a borda
         borderColor: '#4f4f4f',
-        margin:10
+        margin: 10,
     },
     nomePrin: {
         fontSize: 16,

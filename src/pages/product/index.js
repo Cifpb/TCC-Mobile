@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, TextInput, View, ScrollView } from 'react-native';
+import { StyleSheet, Text, TextInput, View, ScrollView, Image, Switch,TouchableOpacity } from 'react-native';
 import { Dropdown } from 'react-native-element-dropdown';
-import {TextInputMask} from 'react-native-masked-text';
+import Seletor from './components/Dropdown';
+import { TextInputMask } from 'react-native-masked-text';
+import ImagePicker from './components/ImagePicker';
+import { useNavigation } from "@react-navigation/native";
 
 
 const data = [
@@ -40,39 +43,22 @@ const parc = [
 const Product = () => {
   const [value, setValue] = useState(null);
   const [isFocus, setIsFocus] = useState(false);
-  const [money,setMoney] = useState('');
+  const [money1, setMoney1] = useState('');
+  const [money2, setMoney2] = useState('');
+  const [isEnabled, setIsEnabled] = useState(false);
+  const toggleSwitch = () => setIsEnabled(previousState => !previousState);
+  const navegation = useNavigation();
 
 
   return (
-    <ScrollView contentContainerStyle={styles.scrollView}>
-    <Text style={styles.trab}> NOVO PRODUTO</Text>
+    <ScrollView style={styles.scrollView}>
+      <Text style={styles.trab}> NOVO PRODUTO</Text>
       <View style={styles.container}>
         <View style={styles.quadrado}>
-          <Text style={styles.inf}>Informações Principais</Text>
+          <Text style={styles.inf}>Informações principais</Text>
           <Text style={styles.dado}>Categoria:</Text>
-          <Dropdown
-            style={[styles.dropdown, isFocus && { borderColor: '#F2B707' }]}
-            placeholderStyle={styles.placeholderStyle}
-            selectedTextStyle={styles.selectedTextStyle}
-            inputSearchStyle={styles.inputSearchStyle}
-            iconStyle={styles.iconStyle}
-            data={data}
-            search
-            maxHeight={300}
-            labelField="label"
-            valueField="value"
-            placeholder={!isFocus ? 'Selecionar Categoria' : '...'}
-            searchPlaceholder="Search..."
-            value={value}
-            onFocus={() => setIsFocus(true)}
-            onBlur={() => setIsFocus(false)}
-            onChange={item => {
-              setValue(item.value);
-              setIsFocus(false);
-            }}
-
-          />
-           <Text style={styles.dado}>Subcategoria:</Text>
+          <Seletor data={data} search={true} />
+          <Text style={styles.dado}>Subcategoria:</Text>
 
           <TextInput style={styles.textInput}
             placeholder="Insira o nome do produto"
@@ -80,76 +66,65 @@ const Product = () => {
 
           <Text style={styles.dado}>Classificação:</Text>
 
-          <Dropdown
-            style={[styles.dropdown, isFocus && { borderColor: '#F2B707' }]}
-            placeholderStyle={styles.placeholderStyle}
-            selectedTextStyle={styles.selectedTextStyle}
-            iconStyle={styles.iconStyle}
-            data={date}
-            maxHeight={300}
-            labelField="label"
-            valueField="value"
-            placeholder={!isFocus ? 'Classifique o Trabalho' : '...'}
-            value={value}
-            onFocus={() => setIsFocus(true)}
-            onBlur={() => setIsFocus(false)}
-            onChange={item => {
-              setValue(item.value);
-              setIsFocus(false);
-            }}
-          />
+          <Seletor data={data} />
         </View>
         <View style={styles.quadrado2}>
-        <Text style={styles.inf}>Informações Secundaria</Text>
-        <Text style={styles.dado}>Descrição:</Text>
-        <TextInput style={styles.textInput}
+          <Text style={styles.inf}>Informações secundárias</Text>
+          <Text style={styles.dado}>Descrição:</Text>
+          <TextInput style={styles.textInput}
             placeholder="Descreva as principais características "
             placeholderTextColor={"#b08504"} />
-            <Text style={styles.dado}>Preço PIX:</Text>
-            <TextInputMask 
-              style={styles.textInput}
-              placeholder="Insira o valor"
-              placeholderTextColor={"#b08504"}
-              type= {'money'}
-              options={{
-                maskType:'BRL',
-              }}
-              value={money}
-              onChangeText={text => setMoney(text)}
-              />
-              <Text style={styles.dado}>Preço cartão credito/debito:</Text>
-              <TextInputMask 
-              style={styles.textInput}
-              placeholder="Insira o valor"
-              placeholderTextColor={"#b08504"}
-              type= {'money'}
-              options={{
-                maskType:'BRL',
-              }}
-              value={money}
-              onChangeText={text => setMoney(text)}
-              />
-               <Text style={styles.dado}>Parcelamento:</Text>
-               <Dropdown
-            style={[styles.dropdown, isFocus && { borderColor: '#F2B707' }]}
-            placeholderStyle={styles.placeholderStyle}
-            selectedTextStyle={styles.selectedTextStyle}
-            iconStyle={styles.iconStyle}
-            data={parc}
-            maxHeight={300}
-            labelField="label"
-            valueField="value"
-            placeholder={!isFocus ? 'Escolha o parcelamento' : '...'}
-            value={value}
-            onFocus={() => setIsFocus(true)}
-            onBlur={() => setIsFocus(false)}
-            onChange={item => {
-              setValue(item.value);
-              setIsFocus(false);
+          <Text style={styles.dado}>Preço PIX:</Text>
+          <TextInputMask
+            style={styles.textInput}
+            placeholder="Insira o valor"
+            placeholderTextColor={"#b08504"}
+            type={'money'}
+            options={{
+              maskType: 'BRL',
             }}
+            value={money1}
+            onChangeText={text => setMoney1(text)}
           />
+          <Text style={styles.dado}>Preço cartão crédito/débito:</Text>
+          <TextInputMask
+            style={styles.textInput}
+            placeholder="Insira o valor"
+            placeholderTextColor={"#b08504"}
+            type={'money'}
+            options={{
+              maskType: 'BRL',
+            }}
+            value={money2}
+            onChangeText={text => setMoney2(text)}
+          />
+          <Text style={styles.dado}>Parcelamento:</Text>
+          <Seletor data={data} />
         </View>
+      
+        <View style={styles.addtela}>
+        <Text style={styles.pri}>Principais trabalhos</Text>
+        <Switch
+        trackColor={{false: '#626262', true: '#333131'}}
+        thumbColor={isEnabled ? '#E0C200' : '#f4f3f4'}
+        ios_backgroundColor="#3e3e3e"
+        onValueChange={toggleSwitch}
+        value={isEnabled}
+      />
       </View>
+        <Text style={styles.inf}>Imagem principal</Text>
+          <ImagePicker />
+          <Text style={styles.tam}>tamanho recomendado: 000px x 000px</Text>
+          <Text style={styles.inf}>Imagem portfólio</Text>
+          <ImagePicker />
+          <Text style={styles.tam}>tamanho recomendado: 000px x 000px</Text>
+          <Text style={styles.inf}>Imagem secundária</Text>
+          <ImagePicker />
+          <Text style={styles.tam}>tamanho recomendado: 000px x 000px</Text>
+      </View>
+      <TouchableOpacity style={styles.button} onPress={() => navegation.navigate('Home')}>
+                        <Text style={styles.buttonText}>Criar</Text>
+          </TouchableOpacity>
     </ScrollView>
   );
 };
@@ -158,27 +133,16 @@ const Product = () => {
 export default Product;
 
 const styles = StyleSheet.create({
-
   scrollView: {
-    flexGrow: 1, 
+    flex: 1,
     backgroundColor: 'black'
   },
-
   container: {
     backgroundColor: 'black',
     padding: 16,
     alignContent: 'center',
     flex: 1,
-    color: 'black',
-    height:'100%'
-  },
-  dropdown: {
-    height: 50,
-    borderColor: '#b08504',
-    borderWidth: 0.5,
-    borderRadius: 8,
-    paddingHorizontal: 8,
-    marginBottom: 10,
+    color: 'black'
   },
   itemContainer: {
     paddingVertical: 10,
@@ -187,10 +151,6 @@ const styles = StyleSheet.create({
   itemText: {
     fontSize: 16,
   },
-  selectedTextStyle: {
-    fontSize: 16,
-    color: 'white',
-  },
   inputSearchStyle: {
     height: 40,
     fontSize: 16,
@@ -198,15 +158,15 @@ const styles = StyleSheet.create({
   quadrado: {
     borderWidth: 2,
     marginBottom: '5%',
-    borderColor: '#F2B707',
+    borderColor: '#E0C200',
     padding: 10,
     borderRadius: 8,
     height: 330
   },
   quadrado2: {
     borderWidth: 2,
-    marginBottom: '5%',
-    borderColor: '#F2B707',
+    marginBottom: '8%',
+    borderColor: '#E0C200',
     padding: 10,
     borderRadius: 8,
     height: 420
@@ -216,11 +176,27 @@ const styles = StyleSheet.create({
     fontSize: 16,
     padding: '2%',
   },
-  inf:{
+  addtela:{
+    flexDirection: 'row',
+    gap: 150,
+  },
+  pri: {
+    color: 'white',
+    fontSize: 16,
+    fontWeight: 'bold',
+    marginLeft: 5
+  },
+
+  inf: {
     color: 'white',
     fontSize: 16,
     padding: '2%',
     fontWeight: 'bold'
+  },
+  tam: {
+    color: '#626262',
+    fontSize: 16,
+    marginLeft: 7
   },
   trab: {
     color: 'white',
@@ -229,23 +205,30 @@ const styles = StyleSheet.create({
     padding: '5%',
     fontWeight: 'bold'
   },
-  placeholderStyle: {
-    fontSize: 16,
-    color: '#b08504',
-  },
-  iconStyle: {
-    width: 20,
-    height: 20,
-  },
   textInput: {
     backgroundColor: 'black',
     color: 'white',
     borderRadius: 10,
-    borderColor: '#b08504',
+    borderColor: '#E0C200',
     borderWidth: 0.5,
     padding: 10,
     marginBottom: 10,
     height: 50,
     fontSize: 16,
   },
+  button: {
+    backgroundColor: '#F2B707',
+    padding: 10,
+    borderRadius: 30,
+    shadowColor: '#000',
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    marginTop: 8,
+    width: 80,
+},
+buttonText: {
+    fontSize: 12,
+    color: '#fff',
+    fontWeight: 'bold'
+}
 });

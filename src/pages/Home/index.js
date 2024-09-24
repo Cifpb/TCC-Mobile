@@ -1,10 +1,11 @@
 import React from "react";
-import { View, Text, StyleSheet, TextInput, TouchableOpacity, Image, ScrollView, FlatList } from "react-native";
+import { View, Text, StyleSheet, Dimensions, TouchableOpacity, Image, ScrollView, FlatList } from "react-native";
 import * as Animatable from 'react-native-animatable';
 import Feather from '@expo/vector-icons/Feather';
 import Octicons from '@expo/vector-icons/Octicons';
 import { useNavigation } from "@react-navigation/native";
 import { LinearGradient } from 'expo-linear-gradient';
+import Carousel from 'react-native-reanimated-carousel';
 
 // Array de Produtos
 export const produtos = [
@@ -110,6 +111,7 @@ export const planos = [
 
 export default function Home() {
     const navegation = useNavigation();
+    const width = Dimensions.get('window').width;
     return (
 
         <ScrollView>
@@ -117,26 +119,108 @@ export default function Home() {
                 <View style={styles.header}></View>
 
                 <View>
-                    {produtos.map(prod => (
-                        <Animatable.View animation="fadeInUp" delay={300} style={styles.produto}>
-                            {prod.promotion !== "" && (
-                                <View
-                                    style={[
-                                        styles.promoFitaProd,
-                                        { backgroundColor: prod.promotion === "Novo" ? "#388E3C" : "#D32F2F" }
-                                    ]}
-                                >
-                                    <Text style={styles.promoTextProd}>{prod.promotion}</Text>
+                    <Carousel
+                        loop
+                        height={240}
+                        width={width}
+                        autoPlay={true}
+                        data={produtos}
+                        scrollAnimationDuration={2000}
+                        renderItem={({ item }) => (
+                            <Animatable.View animation="fadeInUp" delay={300} style={styles.produto}>
+                                {item.promotion !== "" && (
+                                    <View
+                                        style={[
+                                            styles.promoFitaProd,
+                                            { backgroundColor: item.promotion === "Novo" ? "#388E3C" : "#D32F2F" }
+                                        ]}
+                                    >
+                                        <Text style={styles.promoTextProd}>{item.promotion}</Text>
+                                    </View>
+                                )}
+                                <Image source={item.imgP} style={styles.imagemProd} />
+                                <View style={styles.caixapai}>
+                                    <View style={styles.caixaE}>
+                                        <Text style={styles.catTexto}>{item.category}</Text>
+                                        <Text style={styles.subTexto}>{item.subCategory}</Text>
+                                    </View>
+                                    <View style={styles.caixaD}>
+                                        <View style={styles.icones}>
+                                            <TouchableOpacity onPress={() => 0}>
+                                                <Feather name="trash-2" size={18} color="white" />
+                                            </TouchableOpacity>
+                                            <TouchableOpacity onPress={() => 0}>
+                                                <Octicons name="pencil" size={18} color="white" />
+                                            </TouchableOpacity>
+                                        </View>
+                                        <LinearGradient style={styles.button} colors={["#FFD54F", "#FFB300"]}>
+                                            <TouchableOpacity>
+                                                <Text style={styles.buttonText}>R$ {item.price}</Text>
+                                            </TouchableOpacity>
+                                        </LinearGradient>
+                                    </View>
                                 </View>
-                            )}
-                            <Image source={prod.imgP} style={styles.imagemProd} />
-                            <View style={styles.caixapai}>
-                                <View style={styles.caixaE}>
-                                    <Text style={styles.catTexto}>{prod.category}</Text>
-                                    <Text style={styles.subTexto}>{prod.subCategory}</Text>
+                            </Animatable.View>
+                        )} />
+                </View>
+
+                <View>
+                    <Carousel
+                        loop
+                        height={240}
+                        width={width}
+                        autoPlay={true}
+                        data={principaisProd}
+                        scrollAnimationDuration={2000}
+                        renderItem={({ item }) => (
+                            <View style={styles.conteinerPrin}>
+                                <Image source={item.img} style={styles.imgPrin} />
+                                <Text style={styles.nomePrin}>{item.subCategory}</Text>
+                            </View>
+                        )} />
+                </View>
+
+                <View>
+                    <Carousel
+                        loop
+                        height={240}
+                        width={width}
+                        autoPlay={true}
+                        data={planos}
+                        scrollAnimationDuration={2000}
+                        renderItem={({ item }) => (
+                            <Animatable.View
+                                key={item.id}
+                                animation="fadeInUp"
+                                delay={300}
+                                style={styles.plano}
+                            >
+                                {item.promotion !== "" && (
+                                    <View
+                                        style={[
+                                            styles.promoFita,
+                                            { backgroundColor: item.promotion === "Novo" ? "#388E3C" : "#D32F2F" }
+                                        ]}
+                                    >
+                                        <Text style={styles.promoTextProd}>{item.promotion}</Text>
+                                    </View>
+                                )}
+                                <Image source={item.img} style={styles.imagemPlano} />
+                                <View style={styles.conteudoDiv}>
+                                    {item.content.split('.').map((sentence, index) => {
+                                        if (sentence.trim() !== "") {
+                                            return <Text style={styles.textoCard} key={index}>{sentence}</Text>;
+                                        }
+                                        return null;
+                                    })}
                                 </View>
-                                <View style={styles.caixaD}>
-                                    <View style={styles.icones}>
+                                <View style={styles.elementosPlanos}>
+                                    <LinearGradient style={styles.botaoCard} colors={["#FFD54F", "#FFB300"]}>
+                                        <TouchableOpacity onPress={() => { item.document }}>
+                                            <Text style={styles.textoBntCard}>ACESSAR DOC</Text>
+                                        </TouchableOpacity>
+                                    </LinearGradient>
+                                    <View style={styles.iconesPlano}>
                                         <TouchableOpacity onPress={() => 0}>
                                             <Feather name="trash-2" size={18} color="white" />
                                         </TouchableOpacity>
@@ -144,72 +228,12 @@ export default function Home() {
                                             <Octicons name="pencil" size={18} color="white" />
                                         </TouchableOpacity>
                                     </View>
-                                    <LinearGradient style={styles.button} colors={["#FFD54F", "#FFB300"]}>
-                                        <TouchableOpacity>
-                                            <Text style={styles.buttonText}>R$ {prod.price}</Text>
-                                        </TouchableOpacity>
-                                    </LinearGradient>
                                 </View>
-                            </View>
-                        </Animatable.View>
-                    ))}
+                            </Animatable.View>
+                        )} />
                 </View>
 
-                <FlatList 
-                    horizontal data={principaisProd} 
-                    renderItem={({item}) => (
-                                    <View style={styles.conteinerPrin}>
-                                        <Image source={item.img} style={styles.imgPrin} />
-                                        <Text style={styles.nomePrin}>{item.subCategory}</Text>
-                                    </View>
-                    )}
-                    keyExtractor={item => item.id} />
                 
-                <View>
-                    {planos.map(plan => (
-                        <Animatable.View
-                            key={plan.id}
-                            animation="fadeInUp"
-                            delay={300}
-                            style={styles.plano}
-                        >
-                            {plan.promotion !== "" && (
-                                <View
-                                    style={[
-                                        styles.promoFita,
-                                        { backgroundColor: plan.promotion === "Novo" ? "#388E3C" : "#D32F2F" }
-                                    ]}
-                                >
-                                    <Text style={styles.promoTextProd}>{plan.promotion}</Text>
-                                </View>
-                            )}
-                            <Image source={plan.img} style={styles.imagemPlano} />
-                            <View style={styles.conteudoDiv}>
-                                {plan.content.split('.').map((sentence, index) => {
-                                    if (sentence.trim() !== "") {
-                                        return <Text style={styles.textoCard} key={index}>{sentence}</Text>;
-                                    }
-                                    return null;
-                                })}
-                            </View>
-                            <View style={styles.elementosPlanos}>
-                                <LinearGradient style={styles.botaoCard} colors={["#FFD54F", "#FFB300"]}>
-                                    <TouchableOpacity onPress={() => { plan.document }}>
-                                        <Text style={styles.textoBntCard}>ACESSAR DOC</Text>
-                                    </TouchableOpacity>
-                                </LinearGradient>
-                                <View style={styles.iconesPlano}>
-                                    <TouchableOpacity onPress={() => 0}>
-                                        <Feather name="trash-2" size={18} color="white" />
-                                    </TouchableOpacity>
-                                    <TouchableOpacity onPress={() => 0}>
-                                        <Octicons name="pencil" size={18} color="white" />
-                                    </TouchableOpacity>
-                                </View>
-                            </View>
-                        </Animatable.View>
-                    ))}
-                </View>
 
             </View>
         </ScrollView>
@@ -225,7 +249,7 @@ const styles = StyleSheet.create({
 
     // Produtos
     produto: {
-        width: '100%',
+        width: '95%',
         backgroundColor: '#414141',
         borderRadius: 20,
         boxShadow: '0px 8px 20px rgba(0, 0, 0, 0.2)',
@@ -299,20 +323,20 @@ const styles = StyleSheet.create({
 
     // Principais Produtos
     conteinerPrin: {
-        display:"flex",
-        flexDirection:"column",
-        alignItems:"center"
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center"
 
     },
     principaisProd: {
-        flexDirection:"row",
-        flexWrap:"nowrap"
+        flexDirection: "row",
+        flexWrap: "nowrap"
     },
     imgPrin: {
         width: 150,
         height: 150,
         resizeMode: 'contain',
-        borderRadius: 100,  
+        borderRadius: 100,
         borderWidth: 2,  // adiciona a borda
         borderColor: '#4f4f4f',
         margin: 10,

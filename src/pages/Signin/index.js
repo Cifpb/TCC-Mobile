@@ -40,6 +40,7 @@ export default function SignIn() {
                 <TouchableOpacity style={styles.buttonRegister} onPress={() => navegation.navigate('Requests')}>
                     <Text style={styles.registerText}>Pedidos</Text>
                 </TouchableOpacity>
+                
             </Animatable.View>
         </View>
     );

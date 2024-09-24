@@ -16,6 +16,7 @@ export default function MenuLateral() {
     };
   
     return (
+      <View style={styles.Telaped}>
       <View style={[styles.menuLateral, { width: menuAberto ? 200 : 70 }]}>
         <TouchableOpacity style={styles.btnPedido} onPress={toggleMenu}>
           <Image style={[styles.arrowPedido, { transform: [{ rotate: menuAberto ? '180deg' : '0deg' }] }]} source={arrow} />
@@ -36,19 +37,29 @@ export default function MenuLateral() {
           {menuAberto && <Text style={styles.textoPedido}>PEDIDOS CONCLUÍDOS</Text>}
         </TouchableOpacity>
       </View>
+      </View>
     );
   }
   
   const styles = StyleSheet.create({
+
+    Telaped:{
+      flex:1,
+      backgroundColor: "black",
+    },
+
     menuLateral: {
       position: 'absolute',
       height: '100%',
       backgroundColor: "black",
       padding: 8,
-      shadowColor: '#000',
-      shadowOpacity: 0.5,
-      shadowRadius: 3,
+      shadowColor: '#FFD700', 
+      shadowOpacity: 2, 
+      shadowRadius: 30, 
+      shadowOffset: { width: 15, height: 15 },
+      elevation: 25, 
     },
+
     btnPedido: {
       left: 8,
       display: 'flex',
@@ -76,9 +87,8 @@ export default function MenuLateral() {
     
     },
     textoPedido: {
-      fontSize: 15,
-      color: '#fff',
-      textShadowColor: '#946800',
+      fontSize: 11,
+      color: '#E0C200',
       textShadowOffset: { width: 0.2, height: 0.1 },
       textShadowRadius: 0.2,
     },

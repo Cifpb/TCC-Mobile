@@ -12,7 +12,7 @@ export default function Seletor({ data, search }) {
         placeholderStyle={styles.placeholderStyle}
         selectedTextStyle={styles.selectedTextStyle}
         itemTextStyle={{ color: "white" }}
-        activeColor='#e0c200'
+        activeColor='#E0C200'
         inputSearchStyle={styles.inputSearchStyle}
         iconStyle={styles.iconStyle}
         data={data}
@@ -35,7 +35,7 @@ export default function Seletor({ data, search }) {
 const styles = StyleSheet.create({
     dropdown: {
         height: 50,
-        borderColor: '#b08504',
+        borderColor: '#E0C200',
         borderWidth: 0.5,
         borderRadius: 8,
         paddingHorizontal: 8,

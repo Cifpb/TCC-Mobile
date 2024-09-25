@@ -6,6 +6,7 @@ import Home from "../pages/Home";
 import Reset from "../pages/ResetPassaword";
 import Product from "../pages/product";
 import Requests from "../pages/Requests";
+import Plans from "../pages/Plans";
 
 const Stack = createNativeStackNavigator();
 
@@ -42,11 +43,17 @@ export default function Routes() {
          component={Product}
          options={{headerShown: false}}
         />
+         <Stack.Screen
+         name="Plans"
+         component={Plans}
+         options={{headerShown: false}}
+        />
            <Stack.Screen
          name="Requests"
          component={Requests}
          options={{headerShown: false}}
         />
+
         </Stack.Navigator>
     )
 }

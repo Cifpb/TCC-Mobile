@@ -52,7 +52,7 @@ const Product = () => {
 
   return (
     <ScrollView style={styles.scrollView}>
-      <Text style={styles.trab}> NOVO PRODUTO</Text>
+      <Text style={styles.prod}> NOVO PRODUTO</Text>
       <View style={styles.container}>
         <View style={styles.quadrado}>
           <Text style={styles.inf}>Informações principais</Text>
@@ -122,9 +122,14 @@ const Product = () => {
           <ImagePicker />
           <Text style={styles.tam}>tamanho recomendado: 000px x 000px</Text>
       </View>
-      <TouchableOpacity style={styles.button} onPress={() => navegation.navigate('Home')}>
-                        <Text style={styles.buttonText}>Criar</Text>
-          </TouchableOpacity>
+          <View style={styles.buttonContainer}>
+  <TouchableOpacity style={styles.btsal} onPress={() => navegation.navigate('Home')}>
+      <Text style={styles.buttonText}>Salvar</Text>
+  </TouchableOpacity>
+  <TouchableOpacity style={styles.btcanc} onPress={() => navegation.goBack('Home')}>
+    <Text style={styles.buttonText}>Cancelar</Text>
+  </TouchableOpacity>
+</View>
     </ScrollView>
   );
 };
@@ -198,7 +203,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     marginLeft: 7
   },
-  trab: {
+  prod: {
     color: 'white',
     fontSize: 20,
     marginTop: '20%',
@@ -216,19 +221,37 @@ const styles = StyleSheet.create({
     height: 50,
     fontSize: 16,
   },
-  button: {
-    backgroundColor: '#F2B707',
-    padding: 10,
-    borderRadius: 30,
-    shadowColor: '#000',
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-    marginTop: 8,
-    width: 80,
+buttonContainer: {
+  flexDirection: 'row',
+  justifyContent: 'flex-end',
+  gap: 15,
+  marginTop: 20,
+  marginBottom: 40, // Ajuste para o final da página
+},
+btsal: {
+  backgroundColor: '#E0C200',
+  padding: 10,
+  borderRadius: 30,
+  shadowColor: '#000',
+  shadowOpacity: 0.25,
+  shadowRadius: 3.84,
+  width: '30%',
+  alignItems: 'center',
+},
+btcanc: {
+  backgroundColor: '#D9534F',
+  padding: 10,
+  borderRadius: 30,
+  shadowColor: '#000',
+  shadowOpacity: 0.25,
+  shadowRadius: 3.84,
+  width: '30%',
+  alignItems: 'center',
+  marginRight: 12
 },
 buttonText: {
-    fontSize: 12,
-    color: '#fff',
-    fontWeight: 'bold'
-}
+  fontSize: 16,
+  color: 'white',
+  fontWeight: 'bold'
+},
 });

@@ -25,10 +25,10 @@ export default function Register() {
     }, [email]);
     const navegation = useNavigation();
     return(
-      <Animatable.View animation="fadeInUp" delay={900} style={styles.container}>
+      <Animatable.View animation="fadeInUp" delay={5} style={styles.container}>
         <FontAwesome name="user-circle-o" size={60} color="#F2B707" style={styles.iconUser}/>
         <View>
-          <Animatable.View animation="fadeInUp" delay={300} style={styles.viewCentral}>
+          <Animatable.View animation="fadeInUp"  style={styles.viewCentral}>
             <View style={styles.textInputContainer} >
               <Text style={styles.textInputLabel}>Nome de usuário</Text>
               <TextInput style={styles.textInput} 
@@ -102,7 +102,7 @@ export default function Register() {
             </View>
           </Animatable.View>
         </View>
-      <StatusBar style="auto" />
+
     </Animatable.View>
     );
 }
@@ -114,35 +114,35 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: "#161413"
+    backgroundColor: "black"
   },
 
   viewCentral: {
     height: 600,
     width: 350,
     borderWidth: 5,
-    borderColor: "#F2B707",
+    borderColor: "#E0C200",
     borderRadius: 30,
     paddingVertical: 50,
     paddingHorizontal: 20,
     zIndex: 1
   },
   textInputLabel: {
-    color: "#F2B707"
+    color: "#E0C200"
   },
   textPosuiconta:{
-    color:"#F2B707"
+    color:"#E0C200"
   },
 
   textInput: {
     backgroundColor: "#2e2d2d",
-    color: '#ffffff',
+    color: 'white',
     borderRadius: 10,
     padding: 8
   },
   invalidEmail: {
     backgroundColor: "#2e2d2d",
-    color: '#ffffff',
+    color: 'white',
     borderRadius: 10,
     padding: 8,
     color: "red"
@@ -162,6 +162,7 @@ const styles = StyleSheet.create({
   textoBotao:{
     fontWeight: "bold", 
     borderRadius: 10,
+    color: 'white'
   },
   iconUser:{
     position: 'absolute',
@@ -169,13 +170,13 @@ const styles = StyleSheet.create({
   }, 
   telefInput:{
     backgroundColor: "#2e2d2d",
-    color: '#ffffff',
+    color: 'white',
     borderRadius: 10,
     padding: 8
   },
   cpfInput:{
     backgroundColor: "#2e2d2d",
-    color: '#ffffff',
+    color: 'white',
     borderRadius: 10,
     padding: 8
   }

@@ -73,7 +73,8 @@ const Product = () => {
           <Text style={styles.dado}>Descrição:</Text>
           <TextInput style={styles.textInput}
             placeholder="Descreva as principais características "
-            placeholderTextColor={"#b08504"} />
+            placeholderTextColor={"#b08504"} 
+            multiline={true}/>
           <Text style={styles.dado}>Preço PIX:</Text>
           <TextInputMask
             style={styles.textInput}
@@ -112,13 +113,13 @@ const Product = () => {
         value={isEnabled}
       />
       </View>
-        <Text style={styles.inf}>Imagem principal</Text>
+        <Text style={styles.inf}>Imagem principal (Pripais trabalho)</Text>
           <ImagePicker />
           <Text style={styles.tam}>tamanho recomendado: 000px x 000px</Text>
-          <Text style={styles.inf}>Imagem portfólio</Text>
+          <Text style={styles.inf}>Imagem portfólio (Catálogo)</Text>
           <ImagePicker />
           <Text style={styles.tam}>tamanho recomendado: 000px x 000px</Text>
-          <Text style={styles.inf}>Imagem secundária</Text>
+          <Text style={styles.inf}>Imagem secundária (Carrinho) </Text>
           <ImagePicker />
           <Text style={styles.tam}>tamanho recomendado: 000px x 000px</Text>
       </View>
@@ -226,7 +227,7 @@ buttonContainer: {
   justifyContent: 'flex-end',
   gap: 15,
   marginTop: 20,
-  marginBottom: 40, // Ajuste para o final da página
+  marginBottom: 40, 
 },
 btsal: {
   backgroundColor: '#E0C200',

@@ -1,6 +1,6 @@
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { useEffect, useState } from 'react';
-import { View,Text,StyleSheet, TextInput,TouchableOpacity, StatusBar } from "react-native";
+import { View,ScrollView,Text,StyleSheet, TextInput,TouchableOpacity, StatusBar, } from "react-native";
 import { LinearGradient } from 'expo-linear-gradient';
 import { useNavigation } from "@react-navigation/native";
 import * as Animatable from 'react-native-animatable';
@@ -25,8 +25,9 @@ export default function Register() {
     }, [email]);
     const navegation = useNavigation();
     return(
-      <Animatable.View animation="fadeInUp" delay={5} style={styles.container}>
-        <FontAwesome name="user-circle-o" size={60} color="#F2B707" style={styles.iconUser}/>
+      <ScrollView style={styles.scrollView}> 
+      <Animatable.View animation="fadeInUp" delay={1} style={styles.container}>
+        <FontAwesome name="user-circle-o" size={60} color="#E0C200" style={styles.iconUser}/>
         <View>
           <Animatable.View animation="fadeInUp"  style={styles.viewCentral}>
             <View style={styles.textInputContainer} >
@@ -53,7 +54,9 @@ export default function Register() {
               options={{
                 maskType:'BRL',
                 withDDD: true,
-                dddMask:'(99) '
+                dddMask:'+ 99 (99) ',
+              
+                
               }}
               value={cell}
               onChangeText={text => setCell(text)}
@@ -104,11 +107,18 @@ export default function Register() {
         </View>
 
     </Animatable.View>
+    </ScrollView>
+   
     );
 }
 
 
 const styles = StyleSheet.create({
+  scrollView: {
+    flex: 1,
+    backgroundColor: 'black'
+  },
+
   container: {
     flex: 1,
     backgroundColor: '#fff',
@@ -125,7 +135,8 @@ const styles = StyleSheet.create({
     borderRadius: 30,
     paddingVertical: 50,
     paddingHorizontal: 20,
-    zIndex: 1
+    zIndex: 1,
+    marginTop: 110
   },
   textInputLabel: {
     color: "#E0C200"

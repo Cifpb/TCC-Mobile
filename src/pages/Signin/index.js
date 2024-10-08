@@ -43,6 +43,9 @@ export default function SignIn() {
                 <TouchableOpacity style={styles.buttonRegister} onPress={() => navegation.navigate('Plans')}>
                     <Text style={styles.registerText}>Planos</Text>
                 </TouchableOpacity>
+                <TouchableOpacity style={styles.buttonRegister} onPress={() => navegation.navigate('Category')}>
+                    <Text style={styles.registerText}>Categoria</Text>
+                </TouchableOpacity>
             </Animatable.View>
         </View>
     );

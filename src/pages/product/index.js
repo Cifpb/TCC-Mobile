@@ -52,21 +52,17 @@ const Product = () => {
 
   return (
     <ScrollView style={styles.scrollView}>
-      <Text style={styles.prod}> NOVO PRODUTO</Text>
+      <Text style={styles.prod}> Novo Produto</Text>
       <View style={styles.container}>
         <View style={styles.quadrado}>
           <Text style={styles.inf}>Informações principais</Text>
           <Text style={styles.dado}>Categoria:</Text>
-          <Seletor data={data} search={true} />
+          <Seletor data={data} placeholder= "Selecionar Categoria" search={true} />
           <Text style={styles.dado}>Subcategoria:</Text>
 
           <TextInput style={styles.textInput}
             placeholder="Insira o nome do produto"
             placeholderTextColor={"#b08504"} />
-
-          <Text style={styles.dado}>Classificação:</Text>
-
-          <Seletor data={data} />
         </View>
         <View style={styles.quadrado2}>
           <Text style={styles.inf}>Informações secundárias</Text>
@@ -100,9 +96,16 @@ const Product = () => {
             onChangeText={text => setMoney2(text)}
           />
           <Text style={styles.dado}>Parcelamento:</Text>
-          <Seletor data={data} />
+          <Seletor data={data} placeholder= "Selecionar parcelamento" />
         </View>
-      
+        <Text style={styles.inf}>Imagem principal (Web)</Text>
+        <ImagePicker />
+        <Text style={styles.tam}>tamanho recomendado: 000px x 000px</Text>
+
+        <Text style={styles.inf}>Imagem principal (Mobile)</Text>
+        <ImagePicker />
+        <Text style={styles.tam}>tamanho recomendado: 000px x 000px</Text>
+
         <View style={styles.addtela}>
         <Text style={styles.pri}>Principais trabalhos</Text>
         <Switch
@@ -113,7 +116,7 @@ const Product = () => {
         value={isEnabled}
       />
       </View>
-        <Text style={styles.inf}>Imagem principal (Pripais trabalho)</Text>
+        <Text style={styles.inf}>Imagem principal (Principais trabalhos)</Text>
           <ImagePicker />
           <Text style={styles.tam}>tamanho recomendado: 000px x 000px</Text>
           <Text style={styles.inf}>Imagem portfólio (Catálogo)</Text>
@@ -167,7 +170,7 @@ const styles = StyleSheet.create({
     borderColor: '#E0C200',
     padding: 10,
     borderRadius: 8,
-    height: 330
+    height: 240
   },
   quadrado2: {
     borderWidth: 2,
@@ -185,6 +188,7 @@ const styles = StyleSheet.create({
   addtela:{
     flexDirection: 'row',
     gap: 150,
+    marginTop: 15
   },
   pri: {
     color: 'white',

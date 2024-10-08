@@ -8,7 +8,7 @@ export default function Plans() {
     
     return (
        <ScrollView style={styles.scrollView}>
-        <Text style={styles.plan}> NOVO PLANO</Text>
+        <Text style={styles.plan}> Novo Plano</Text>
         <View style={styles.container}>
           <View style={styles.quadrado}>
           <Text style={styles.inf}>Informações principais</Text>
@@ -25,10 +25,10 @@ export default function Plans() {
             <TextInput style={styles.textInput}
             placeholder="Insira a porcentagem"
             placeholderTextColor={"#b08504"} 
-            multiline={true} />
+           />
           </View>
           <View> 
-          <Text style={styles.inf}>Imagem principal (do plano)</Text>
+          <Text style={styles.inf}>Imagem principal do plano</Text>
           <ImagePicker />
           <Text style={styles.tam}>tamanho recomendado: 000px x 000px</Text>
           <Text style={styles.inf}>Upload documento</Text>

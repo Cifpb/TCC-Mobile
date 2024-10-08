@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { StyleSheet } from 'react-native';
 import { Dropdown } from 'react-native-element-dropdown';
 
-export default function Seletor({ data, search }) {
+export default function Seletor({ data, search, placeholder }) {
     const [value, setValue] = useState(null);
     const [isFocus, setIsFocus] = useState(false);
 
@@ -20,8 +20,8 @@ export default function Seletor({ data, search }) {
         maxHeight={300}
         labelField="label"
         valueField="value"
-        placeholder={!isFocus ? 'Selecionar Categoria' : '...'}
-        searchPlaceholder="Search..."
+        placeholder={!isFocus ? placeholder : '...'}
+        searchPlaceholder="Pesquise..."
         value={value}
         onFocus={() => setIsFocus(true)}
         onBlur={() => setIsFocus(false)}

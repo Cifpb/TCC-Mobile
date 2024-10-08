@@ -1,8 +1,9 @@
-import React from "react";
-import { View, Text, StyleSheet, Dimensions, TouchableOpacity, Image, ScrollView, FlatList } from "react-native";
+import React, { useState } from "react";
+import { View, Text, StyleSheet, Dimensions, TouchableOpacity, Image, ScrollView, FlatList, Modal } from "react-native";
 import * as Animatable from 'react-native-animatable';
 import Feather from '@expo/vector-icons/Feather';
 import Octicons from '@expo/vector-icons/Octicons';
+import AntDesign from '@expo/vector-icons/AntDesign';
 import { useNavigation } from "@react-navigation/native";
 import { LinearGradient } from 'expo-linear-gradient';
 import Carousel from 'react-native-reanimated-carousel';
@@ -112,13 +113,44 @@ export const planos = [
 export default function Home() {
     const navegation = useNavigation();
     const width = Dimensions.get('window').width;
+
+    const [listaProdutos, setListaProdutos] = useState(produtos);
+    const [modalVisivel, setModalVisivel] = useState(false);
+    const [produtoSelecionado, setProdutoSelecionado] = useState(null); // Produto que será excluído
+
+    const abrirModalParaExcluir = (produto) => {
+        setProdutoSelecionado(produto); // Define o produto selecionado
+        setModalVisivel(true); // Abre o modal
+    };
+
+    const confirmarExclusao = () => {
+        if (produtoSelecionado) {
+            setListaProdutos(listaProdutos.filter(item => item.id !== produtoSelecionado.id)); // Remove o produto da lista
+        }
+        setModalVisivel(false); // Fecha o modal
+        setProdutoSelecionado(null); // Reseta o produto selecionado
+    };
+
+    const cancelarExclusao = () => {
+        setModalVisivel(false); // Fecha o modal sem fazer alterações
+        setProdutoSelecionado(null); // Reseta o produto selecionado
+    };
+
     return (
 
-        <ScrollView>
+        <ScrollView style={styles.scrollView}>
             <View style={styles.container}>
                 <View style={styles.header}></View>
 
                 <View>
+                    <View style={styles.textoConteiner}>
+                        <Text style={styles.textoLista}>Lista de Produtos</Text>
+                        <View style={styles.iconeAdd}>
+                            <TouchableOpacity onPress={() => navegation.navigate('Product')}>
+                                <AntDesign name="pluscircleo" size={24} color="white" />
+                            </TouchableOpacity>
+                        </View>
+                    </View>
                     <Carousel
                         loop
                         height={240}
@@ -146,7 +178,7 @@ export default function Home() {
                                     </View>
                                     <View style={styles.caixaD}>
                                         <View style={styles.icones}>
-                                            <TouchableOpacity onPress={() => 0}>
+                                            <TouchableOpacity onPress={() => abrirModalParaExcluir(item)}>
                                                 <Feather name="trash-2" size={18} color="white" />
                                             </TouchableOpacity>
                                             <TouchableOpacity onPress={() => 0}>
@@ -164,7 +196,35 @@ export default function Home() {
                         )} />
                 </View>
 
+                {/* Modal */}
+                {modalVisivel && (
+                    <Modal transparent={true} animationType="slide">
+                        <View style={styles.modalBackground}>
+                            <View style={styles.modalContent}>
+                                <Text style={styles.textoModal}>Você tem certeza de que deseja excluir este produto?</Text>
+                                <Text style={styles.textoLembrete}>Lembre-se de que, se ele estiver listado entre os principais produtos, também será removido dessa lista.</Text>
+                                <View style={styles.bntElementos}>
+                                    <TouchableOpacity style={styles.botaoModal1} onPress={confirmarExclusao}>
+                                        <Text style={styles.textoBModal1}>SIM</Text>
+                                    </TouchableOpacity>
+                                    <TouchableOpacity style={styles.botaoModal2} onPress={cancelarExclusao}>
+                                        <Text style={styles.textoBModal2}>NÃO</Text>
+                                    </TouchableOpacity>
+                                </View>
+                            </View>
+                        </View>
+                    </Modal>
+                )}
+
                 <View>
+                    <View style={styles.textoConteiner}>
+                        <Text style={styles.textoLista}>Lista de Principais Produtos</Text>
+                        <View style={styles.iconeAdd}>
+                            <TouchableOpacity onPress={() => navegation.navigate('Product')}>
+                                <AntDesign name="pluscircleo" size={24} color="white" />
+                            </TouchableOpacity>
+                        </View>
+                    </View>
                     <Carousel
                         loop
                         height={240}
@@ -181,70 +241,101 @@ export default function Home() {
                 </View>
 
                 <View>
+                    <View style={styles.textoConteiner}>
+                        <Text style={styles.textoLista}>Lista de Planos</Text>
+                        <View style={styles.iconeAdd}>
+                            <TouchableOpacity onPress={() => navegation.navigate('Plans')}>
+                                <AntDesign name="pluscircleo" size={24} color="white" />
+                            </TouchableOpacity>
+                        </View>
+                    </View>
                     <Carousel
                         loop
-                        height={240}
+                        height={450}
                         width={width}
                         autoPlay={true}
                         data={planos}
                         scrollAnimationDuration={2000}
                         renderItem={({ item }) => (
-                            <Animatable.View
-                                key={item.id}
-                                animation="fadeInUp"
-                                delay={300}
-                                style={styles.plano}
-                            >
-                                {item.promotion !== "" && (
-                                    <View
-                                        style={[
-                                            styles.promoFita,
-                                            { backgroundColor: item.promotion === "Novo" ? "#388E3C" : "#D32F2F" }
-                                        ]}
-                                    >
-                                        <Text style={styles.promoTextProd}>{item.promotion}</Text>
+                            <View style={styles.conteinerPlanos}>
+                                <Animatable.View
+                                    key={item.id}
+                                    animation="fadeInUp"
+                                    delay={300}
+                                    style={styles.plano}
+                                >
+                                    {item.promotion !== "" && (
+                                        <View
+                                            style={[
+                                                styles.promoFita,
+                                                { backgroundColor: item.promotion === "Novo" ? "#388E3C" : "#D32F2F" }
+                                            ]}
+                                        >
+                                            <Text style={styles.promoTextProd}>{item.promotion}</Text>
+                                        </View>
+                                    )}
+                                    <Image source={item.img} style={styles.imagemPlano} />
+                                    <View style={styles.conteudoDiv}>
+                                        {item.content.split('.').map((sentence, index) => {
+                                            if (sentence.trim() !== "") {
+                                                return <Text style={styles.textoCard} key={index}>{sentence}</Text>;
+                                            }
+                                            return null;
+                                        })}
                                     </View>
-                                )}
-                                <Image source={item.img} style={styles.imagemPlano} />
-                                <View style={styles.conteudoDiv}>
-                                    {item.content.split('.').map((sentence, index) => {
-                                        if (sentence.trim() !== "") {
-                                            return <Text style={styles.textoCard} key={index}>{sentence}</Text>;
-                                        }
-                                        return null;
-                                    })}
-                                </View>
-                                <View style={styles.elementosPlanos}>
-                                    <LinearGradient style={styles.botaoCard} colors={["#FFD54F", "#FFB300"]}>
-                                        <TouchableOpacity onPress={() => { item.document }}>
-                                            <Text style={styles.textoBntCard}>ACESSAR DOC</Text>
-                                        </TouchableOpacity>
-                                    </LinearGradient>
-                                    <View style={styles.iconesPlano}>
-                                        <TouchableOpacity onPress={() => 0}>
-                                            <Feather name="trash-2" size={18} color="white" />
-                                        </TouchableOpacity>
-                                        <TouchableOpacity onPress={() => 0}>
-                                            <Octicons name="pencil" size={18} color="white" />
-                                        </TouchableOpacity>
+                                    <View style={styles.elementosPlanos}>
+                                        <LinearGradient style={styles.botaoCard} colors={["#FFD54F", "#FFB300"]}>
+                                            <TouchableOpacity onPress={() => { item.document }}>
+                                                <Text style={styles.textoBntCard}>ACESSAR DOC</Text>
+                                            </TouchableOpacity>
+                                        </LinearGradient>
+                                        <View style={styles.iconesPlano}>
+                                            <TouchableOpacity onPress={() => 0}>
+                                                <Feather name="trash-2" size={18} color="white" />
+                                            </TouchableOpacity>
+                                            <TouchableOpacity onPress={() => 0}>
+                                                <Octicons name="pencil" size={18} color="white" />
+                                            </TouchableOpacity>
+                                        </View>
                                     </View>
-                                </View>
-                            </Animatable.View>
+                                </Animatable.View>
+                            </View>
                         )} />
                 </View>
 
-                
+
 
             </View>
-        </ScrollView>
+        </ScrollView >
     );
 }
 
 const styles = StyleSheet.create({
+    scrollView: {
+        flex: 1,
+        backgroundColor: 'black'
+    },
     container: {
         flex: 1,
         backgroundColor: 'black',
         padding: 10,
+        color: 'black'
+    },
+    textoConteiner: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        marginHorizontal: 2,
+        marginTop: 30,
+        marginBottom: 15
+    },
+    textoLista: {
+        color: 'white',
+        fontSize: 22,
+        fontWeight: 'bold',
+    },
+    iconeAdd: {
+        flexDirection: 'row',
+        marginRight: 5
     },
 
     // Produtos
@@ -321,12 +412,74 @@ const styles = StyleSheet.create({
         fontSize: 14,
     },
 
+    //Modal
+    modalBackground: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: 'rgba(0, 0, 0, 0.9)',
+    },
+    modalContent: {
+        width: '80%',
+        padding: 20,
+        borderRadius: 15,
+        backgroundColor: '#3b3a39',
+        alignItems: 'center',
+    },
+    textoModal: {
+        fontSize: 18,
+        marginBottom: 12,
+        marginTop: 10,
+        textAlign: 'center',
+        color: 'white',
+    },
+    textoLembrete: {
+        fontSize: 14,
+        textAlign: 'center',
+        color: '#ccc'
+    },
+    bntElementos: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        marginTop: 20,
+        gap: 50
+    },
+    botaoModal1: {
+        marginVertical: 10,
+        padding: 10,
+        borderRadius: 5,
+        backgroundColor: '#f7cc25',
+        width: '100%',
+        alignItems: 'center',
+        width: 90
+    },
+    botaoModal2: {
+        marginVertical: 10,
+        padding: 10,
+        borderRadius: 5,
+        backgroundColor: '#3b3a39',
+        borderColor: '#f7cc25',
+        borderWidth: 2,
+        width: '100%',
+        alignItems: 'center',
+        width: 90
+    },
+    textoBModal1: {
+        color: '#3b3a39',
+        fontSize: 16,
+        fontWeight: 'bold'
+    },
+    textoBModal2: {
+        color: '#f7cc25',
+        fontSize: 16,
+        fontWeight: 'bold'
+    },
+
     // Principais Produtos
     conteinerPrin: {
         display: "flex",
         flexDirection: "column",
         alignItems: "center"
-
     },
     principaisProd: {
         flexDirection: "row",
@@ -337,7 +490,7 @@ const styles = StyleSheet.create({
         height: 150,
         resizeMode: 'contain',
         borderRadius: 100,
-        borderWidth: 2,  // adiciona a borda
+        borderWidth: 2,
         borderColor: '#4f4f4f',
         margin: 10,
     },
@@ -349,6 +502,9 @@ const styles = StyleSheet.create({
     },
 
     // Planos
+    conteinerPlanos: {
+        alignItems: 'center'
+    },
     plano: {
         width: '70%',
         backgroundColor: '#414141',
@@ -363,8 +519,7 @@ const styles = StyleSheet.create({
         height: 146,
         borderTopLeftRadius: 20,
         borderTopRightRadius: 20,
-        alignItems: 'center',
-        resizeMode: 'contain',
+        resizeMode: 'contain'
     },
     promoFita: {
         position: 'absolute',
@@ -397,7 +552,7 @@ const styles = StyleSheet.create({
         paddingBottom: 4,
     },
     elementosPlanos: {
-        flexDirection: 'row', // Alinha os filhos horizontalmente
+        flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
         marginVertical: 15,
@@ -419,3 +574,4 @@ const styles = StyleSheet.create({
         gap: 25,
     },
 });
+

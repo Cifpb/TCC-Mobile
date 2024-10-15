@@ -14,7 +14,7 @@ import React, { useState } from 'react';
 import { View, Text, Image, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
 
 export default function MenuLateral() {
-  const navigation = useNavigation();
+  const navegation = useNavigation();
   const [itemSelecionado, setItemSelecionado] = useState('Pedidos'); 
 
   const pedidosSolicitados = [
@@ -95,6 +95,7 @@ export default function MenuLateral() {
       </View>
 
       <ScrollView style={styles.content}>
+      <TouchableOpacity onPress={() => navegation.navigate('Order')}>
         {getPedidos().map((pedido, index) => (
           <View key={index} style={styles.card}>
             <Image style={styles.imgped} source={pedido.imagem} />
@@ -126,6 +127,7 @@ export default function MenuLateral() {
             </View>
           </View>
         ))}
+        </TouchableOpacity>
       </ScrollView>
     </View>
   );

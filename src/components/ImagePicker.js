@@ -23,7 +23,7 @@ export default function ImagePickerComponent() {
             <Image source={{ uri: image }} style={styles.image} />
         </View> : 
         <TouchableOpacity onPress={pickImage} style={styles.quadrado}>
-            <Image source={require("../../../assets/adicionar produto/icon.png")} />
+            <Image source={require("../assets/adicionar produto/icon.png")} />
             <Text style={styles.upl}>Faça o upload da imagem</Text>
         </TouchableOpacity>
     ;

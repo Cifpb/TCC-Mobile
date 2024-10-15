@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, ScrollView, TextInput, Switch } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import ImagePicker from '../product/components/ImagePicker';
+import ImagePicker from '../../components/ImagePicker';
 
 export default function Plans() {
     const navegation = useNavigation(); 

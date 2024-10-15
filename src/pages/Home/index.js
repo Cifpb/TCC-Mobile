@@ -19,7 +19,7 @@ export const produtos = [
         imgS4: require('../../assets/produtos/img-virgens/projetosG.png'),
         imgS5: require('../../assets/produtos/img-virgens/projetosG.png'),
         imgS6: require('../../assets/produtos/img-virgens/projetosG.png'),
-        category: 'MÍDIA Visual',
+        category: 'MÍDIA VISUAL',
         subCategory: 'Logotipo',
         promotion: "",
         price: '800,00'
@@ -73,7 +73,7 @@ export const principaisProd = [
     { id: "produtoPrin1", img: require('../../assets/planos/imagens/plano1.png'), subCategory: 'Projetos Gráficos' },
     { id: "produtoPrin2", img: require('../../assets/principaisProdutos/flyer.png'), subCategory: 'Motion' },
     { id: "produtoPrin3", img: require('../../assets/principaisProdutos/flyer.png'), subCategory: 'Flyer' },
-    { id: "prondutoPrin4", img: require('../../assets/principaisProdutos/flyer.png'), subCategory: 'Logotipo/Identidade Visual' },
+    { id: "produtoPrin4", img: require('../../assets/principaisProdutos/flyer.png'), subCategory: 'Logotipo/Identidade Visual' },
 ];
 
 // Array dos Planos
@@ -115,6 +115,7 @@ export default function Home() {
     const width = Dimensions.get('window').width;
 
     const [listaProdutos, setListaProdutos] = useState(produtos);
+    const [principaisProd1, setPrincipaisProd] = useState(principaisProd);
     const [modalVisivel, setModalVisivel] = useState(false);
     const [produtoSelecionado, setProdutoSelecionado] = useState(null); // Produto que será excluído
 
@@ -125,7 +126,13 @@ export default function Home() {
 
     const confirmarExclusao = () => {
         if (produtoSelecionado) {
-            setListaProdutos(listaProdutos.filter(item => item.id !== produtoSelecionado.id)); // Remove o produto da lista
+            // Remove da lista de produtos
+            setListaProdutos(prevLista => prevLista.filter(item => item.id === produtoSelecionado.id));
+
+            // Verifica se o produto está na lista de principais produtos e remove se o subCategory for igual
+            setPrincipaisProd(prevPrincipaisProd =>
+                prevPrincipaisProd.filter(item => item.subCategory === produtoSelecionado.subCategory)
+            );
         }
         setModalVisivel(false); // Fecha o modal
         setProdutoSelecionado(null); // Reseta o produto selecionado
@@ -140,11 +147,14 @@ export default function Home() {
 
         <ScrollView style={styles.scrollView}>
             <View style={styles.container}>
-                <View style={styles.header}></View>
+
+                <View style={styles.header}>
+                    <Image source={require('../../assets/logo/empresa.png')} style={styles.logo} />
+                </View>
 
                 <View>
                     <View style={styles.textoConteiner}>
-                        <Text style={styles.textoLista}>Lista de Produtos</Text>
+                        <Text style={styles.textoLista}>LISTA DE PRODUTOS</Text>
                         <View style={styles.iconeAdd}>
                             <TouchableOpacity onPress={() => navegation.navigate('Product')}>
                                 <AntDesign name="pluscircleo" size={24} color="white" />
@@ -197,6 +207,7 @@ export default function Home() {
                 </View>
 
                 {/* Modal */}
+
                 {modalVisivel && (
                     <Modal transparent={true} animationType="slide">
                         <View style={styles.modalBackground}>
@@ -218,7 +229,7 @@ export default function Home() {
 
                 <View>
                     <View style={styles.textoConteiner}>
-                        <Text style={styles.textoLista}>Lista de Principais Produtos</Text>
+                        <Text style={styles.textoLista}>LISTA DE PRINCIPAIS PRODUTOS</Text>
                         <View style={styles.iconeAdd}>
                             <TouchableOpacity onPress={() => navegation.navigate('Product')}>
                                 <AntDesign name="pluscircleo" size={24} color="white" />
@@ -242,7 +253,7 @@ export default function Home() {
 
                 <View>
                     <View style={styles.textoConteiner}>
-                        <Text style={styles.textoLista}>Lista de Planos</Text>
+                        <Text style={styles.textoLista}>LISTA DE PLANOS</Text>
                         <View style={styles.iconeAdd}>
                             <TouchableOpacity onPress={() => navegation.navigate('Plans')}>
                                 <AntDesign name="pluscircleo" size={24} color="white" />
@@ -330,12 +341,25 @@ const styles = StyleSheet.create({
     },
     textoLista: {
         color: 'white',
-        fontSize: 22,
+        fontSize: 20,
         fontWeight: 'bold',
     },
     iconeAdd: {
         flexDirection: 'row',
         marginRight: 5
+    },
+
+    //Cabecalho
+    header: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        marginBottom: 70,
+        marginTop: 5, 
+    },
+    logo: {
+        width: 120, 
+        height: 70,
     },
 
     // Produtos

@@ -24,15 +24,9 @@ export default function SignIn() {
                     style={styles.input}
                     secureTextEntry
                 />
-                 <TouchableOpacity style={styles.buttonSenha} onPress={() => navegation.navigate('Reset')}>
-                    <Text style={styles.registerText}>Esqueceu Senha</Text>
-                </TouchableOpacity>
         
                 <TouchableOpacity style={styles.button} onPress={() => navegation.navigate('Home')}>
                     <Text style={styles.buttonText}>Enviar</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.buttonRegister} onPress={() => navegation.navigate('Register')}>
-                    <Text style={styles.registerText}>Não possui uma conta? Cadastre-se</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.buttonRegister} onPress={() => navegation.navigate('Product')}>
                     <Text style={styles.registerText}>Product</Text>
@@ -42,9 +36,6 @@ export default function SignIn() {
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.buttonRegister} onPress={() => navegation.navigate('Plans')}>
                     <Text style={styles.registerText}>Planos</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.buttonRegister} onPress={() => navegation.navigate('Category')}>
-                    <Text style={styles.registerText}>Categoria</Text>
                 </TouchableOpacity>
                 
             </Animatable.View>

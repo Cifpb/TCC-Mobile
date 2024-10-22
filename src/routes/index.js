@@ -1,13 +1,10 @@
 import {createNativeStackNavigator} from "@react-navigation/native-stack";
 import Welcome from "../pages/welcome";
 import SignIn from "../pages/Signin";
-import Register from "../pages/Register";
 import Home from "../pages/Home";
-import Reset from "../pages/ResetPassaword";
 import Product from "../pages/product";
 import Requests from "../pages/Requests";
 import Plans from "../pages/Plans";
-import Category from "../pages/Category";
 import Order from "../pages/order";
 
 const Stack = createNativeStackNavigator();
@@ -25,19 +22,10 @@ export default function Routes() {
          component={SignIn}
          options={{headerShown: false}}
         />
-          <Stack.Screen
-         name="Register"
-         component={Register}
-         options={{headerShown: false}}
-        />
+        
         <Stack.Screen
          name="Home"
          component={Home}
-         options={{headerShown: false}}
-        />
-          <Stack.Screen
-         name="Reset"
-         component={Reset}
          options={{headerShown: false}}
         />
           <Stack.Screen
@@ -55,11 +43,7 @@ export default function Routes() {
          component={Requests}
          options={{headerShown: false}}
         />
-         <Stack.Screen
-         name="Category"
-         component={Category}
-         options={{headerShown: false}}
-        />
+        
          <Stack.Screen
          name="Order"
          component={Order}

@@ -355,10 +355,10 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         alignItems: 'center',
         marginBottom: 70,
-        marginTop: 5, 
+        marginTop: 5,
     },
     logo: {
-        width: 120, 
+        width: 120,
         height: 70,
     },
 

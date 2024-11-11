@@ -24,7 +24,7 @@ export default function SignIn() {
                     style={styles.input}
                     secureTextEntry
                 />
-        
+
                 <TouchableOpacity style={styles.button} onPress={() => navegation.navigate('Home')}>
                     <Text style={styles.buttonText}>Enviar</Text>
                 </TouchableOpacity>
@@ -37,7 +37,7 @@ export default function SignIn() {
                 <TouchableOpacity style={styles.buttonRegister} onPress={() => navegation.navigate('Plans')}>
                     <Text style={styles.registerText}>Planos</Text>
                 </TouchableOpacity>
-                
+
             </Animatable.View>
         </View>
     );
@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#F2B707',
-       
+
     },
     containerHeader: {
         marginTop: '12%',
@@ -58,7 +58,7 @@ const styles = StyleSheet.create({
         fontSize: 28,
         fontWeight: 'bold',
         color: '#161413',
-        
+
     },
     containerForm: {
         backgroundColor: '#161413',
@@ -95,7 +95,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
     },
-    
+
     buttonText: {
         color: '#161413',
         fontSize: 18,
@@ -108,8 +108,8 @@ const styles = StyleSheet.create({
     registerText: {
         color: '#cfa62d'
     },
-    buttonSenha:{
+    buttonSenha: {
         marginTop: 14,
-        
+
     }
 });

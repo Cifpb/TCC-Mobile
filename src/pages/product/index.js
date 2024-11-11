@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, TextInput, View, ScrollView, Image, Switch,TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, TextInput, View, ScrollView, Image, Switch, TouchableOpacity } from 'react-native';
 import { Dropdown } from 'react-native-element-dropdown';
 import Seletor from '../../components/Dropdown';
 import { TextInputMask } from 'react-native-masked-text';
@@ -57,7 +57,7 @@ const Product = () => {
         <View style={styles.quadrado}>
           <Text style={styles.inf}>Informações principais</Text>
           <Text style={styles.dado}>Categoria:</Text>
-          <Seletor data={data} placeholder= "Selecionar Categoria" search={true} />
+          <Seletor data={data} placeholder="Selecionar Categoria" search={true} />
           <Text style={styles.dado}>Subcategoria:</Text>
 
           <TextInput style={styles.textInput}
@@ -69,8 +69,8 @@ const Product = () => {
           <Text style={styles.dado}>Descrição:</Text>
           <TextInput style={styles.textInput}
             placeholder="Descreva as principais características "
-            placeholderTextColor={"#b08504"} 
-            multiline={true}/>
+            placeholderTextColor={"#b08504"}
+            multiline={true} />
           <Text style={styles.dado}>Preço PIX:</Text>
           <TextInputMask
             style={styles.textInput}
@@ -96,7 +96,7 @@ const Product = () => {
             onChangeText={text => setMoney2(text)}
           />
           <Text style={styles.dado}>Parcelamento:</Text>
-          <Seletor data={data} placeholder= "Selecionar parcelamento" />
+          <Seletor data={data} placeholder="Selecionar parcelamento" />
         </View>
         <Text style={styles.inf}>Imagem principal (Web)</Text>
         <ImagePicker />
@@ -107,33 +107,33 @@ const Product = () => {
         <Text style={styles.tam}>tamanho recomendado: 000px x 000px</Text>
 
         <View style={styles.addtela}>
-        <Text style={styles.pri}>Principais trabalhos</Text>
-        <Switch
-        trackColor={{false: '#626262', true: '#333131'}}
-        thumbColor={isEnabled ? '#E0C200' : '#f4f3f4'}
-        ios_backgroundColor="#3e3e3e"
-        onValueChange={toggleSwitch}
-        value={isEnabled}
-      />
-      </View>
+          <Text style={styles.pri}>Principais trabalhos</Text>
+          <Switch
+            trackColor={{ false: '#626262', true: '#333131' }}
+            thumbColor={isEnabled ? '#E0C200' : '#f4f3f4'}
+            ios_backgroundColor="#3e3e3e"
+            onValueChange={toggleSwitch}
+            value={isEnabled}
+          />
+        </View>
         <Text style={styles.inf}>Imagem principal (Principais trabalhos)</Text>
-          <ImagePicker />
-          <Text style={styles.tam}>tamanho recomendado: 000px x 000px</Text>
-          <Text style={styles.inf}>Imagem portfólio (Catálogo)</Text>
-          <ImagePicker />
-          <Text style={styles.tam}>tamanho recomendado: 000px x 000px</Text>
-          <Text style={styles.inf}>Imagem secundária (Carrinho) </Text>
-          <ImagePicker />
-          <Text style={styles.tam}>tamanho recomendado: 000px x 000px</Text>
+        <ImagePicker />
+        <Text style={styles.tam}>tamanho recomendado: 000px x 000px</Text>
+        <Text style={styles.inf}>Imagem portfólio (Catálogo)</Text>
+        <ImagePicker />
+        <Text style={styles.tam}>tamanho recomendado: 000px x 000px</Text>
+        <Text style={styles.inf}>Imagem secundária (Carrinho) </Text>
+        <ImagePicker />
+        <Text style={styles.tam}>tamanho recomendado: 000px x 000px</Text>
       </View>
-          <View style={styles.buttonContainer}>
-  <TouchableOpacity style={styles.btsal} onPress={() => navegation.navigate('Home')}>
-      <Text style={styles.buttonText}>Salvar</Text>
-  </TouchableOpacity>
-  <TouchableOpacity style={styles.btcanc} onPress={() => navegation.goBack('Home')}>
-    <Text style={styles.buttonText}>Cancelar</Text>
-  </TouchableOpacity>
-</View>
+      <View style={styles.buttonContainer}>
+        <TouchableOpacity style={styles.btsal} onPress={() => navegation.navigate('Home')}>
+          <Text style={styles.buttonText}>Salvar</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.btcanc} onPress={() => navegation.goBack('Home')}>
+          <Text style={styles.buttonText}>Cancelar</Text>
+        </TouchableOpacity>
+      </View>
     </ScrollView>
   );
 };
@@ -185,7 +185,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     padding: '2%',
   },
-  addtela:{
+  addtela: {
     flexDirection: 'row',
     gap: 150,
     marginTop: 15
@@ -226,37 +226,37 @@ const styles = StyleSheet.create({
     height: 50,
     fontSize: 16,
   },
-buttonContainer: {
-  flexDirection: 'row',
-  justifyContent: 'flex-end',
-  gap: 15,
-  marginTop: 20,
-  marginBottom: 40, 
-},
-btsal: {
-  backgroundColor: '#E0C200',
-  padding: 10,
-  borderRadius: 30,
-  shadowColor: '#000',
-  shadowOpacity: 0.25,
-  shadowRadius: 3.84,
-  width: '30%',
-  alignItems: 'center',
-},
-btcanc: {
-  backgroundColor: '#D9534F',
-  padding: 10,
-  borderRadius: 30,
-  shadowColor: '#000',
-  shadowOpacity: 0.25,
-  shadowRadius: 3.84,
-  width: '30%',
-  alignItems: 'center',
-  marginRight: 12
-},
-buttonText: {
-  fontSize: 16,
-  color: 'white',
-  fontWeight: 'bold'
-},
+  buttonContainer: {
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+    gap: 15,
+    marginTop: 20,
+    marginBottom: 40,
+  },
+  btsal: {
+    backgroundColor: '#E0C200',
+    padding: 10,
+    borderRadius: 30,
+    shadowColor: '#000',
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    width: '30%',
+    alignItems: 'center',
+  },
+  btcanc: {
+    backgroundColor: '#D9534F',
+    padding: 10,
+    borderRadius: 30,
+    shadowColor: '#000',
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    width: '30%',
+    alignItems: 'center',
+    marginRight: 12
+  },
+  buttonText: {
+    fontSize: 16,
+    color: 'white',
+    fontWeight: 'bold'
+  },
 });

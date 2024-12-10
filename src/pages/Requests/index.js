@@ -6,10 +6,6 @@ import ped from "../../assets/pedidos/cards/ped.png";
 import ped1 from "../../assets/pedidos/cards/ped1.png";
 import ped2 from "../../assets/pedidos/cards/ped2.png";
 import ped3 from "../../assets/pedidos/cards/ped3.png";
-import Aceito from "../../assets/pedidos/cards/aceito.png";
-import Negar from "../../assets/pedidos/cards/negar.png";
-import Lapis from "../../assets/pedidos/cards/lapis.png";
-import Olho from "../../assets/pedidos/cards/olho.png";
 import React, { useState } from 'react';
 import { View, Text, Image, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
 

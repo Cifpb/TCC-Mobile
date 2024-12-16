@@ -14,22 +14,13 @@
     "@react-native-masked-view/masked-view": "0.3.2",
     "@react-navigation/native": "^6.1.18",
     "@react-navigation/native-stack": "^6.10.1",
-<<<<<<< HEAD
-    "expo": "^52.0.17",
-    "expo-image-picker": "~16.0.3",
-=======
     "expo": "^52.0.7",
     "expo-image-picker": "~16.0.2",
->>>>>>> cb6fbc86f4d4c8fb80f27e7bd13d2cfc1bb8ee7f
     "expo-linear-gradient": "~14.0.1",
     "expo-status-bar": "~2.0.0",
     "react": "18.3.1",
     "react-dom": "18.3.1",
-<<<<<<< HEAD
     "react-native": "0.76.3",
-=======
-    "react-native": "0.76.2",
->>>>>>> cb6fbc86f4d4c8fb80f27e7bd13d2cfc1bb8ee7f
     "react-native-animatable": "^1.4.0",
     "react-native-element-dropdown": "^2.12.1",
     "react-native-gesture-handler": "~2.20.2",

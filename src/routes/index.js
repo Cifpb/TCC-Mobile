@@ -5,6 +5,7 @@ import Home from "../pages/Home";
 import Product from "../pages/product";
 import Requests from "../pages/Requests";
 import Plans from "../pages/Plans";
+import Profile from "../pages/profile";
 import Order1 from "../pages/order";
 
 const Stack = createNativeStackNavigator();
@@ -47,6 +48,12 @@ export default function Routes() {
          <Stack.Screen
          name="Order"
          component={Order1}
+         options={{headerShown: false}}
+        />
+
+        <Stack.Screen
+         name="Profile"
+         component={Profile}
          options={{headerShown: false}}
         />
 

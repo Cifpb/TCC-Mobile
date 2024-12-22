@@ -9,7 +9,7 @@ import ped3 from "../../assets/pedidos/cards/ped3.png";
 import React, { useState } from 'react';
 import { View, Text, Image, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
 
-export default function MenuLateral() {
+export default function MenuSuperior() {
   const navegation = useNavigation();
   const [itemSelecionado, setItemSelecionado] = useState('Pedidos');
 
@@ -158,6 +158,7 @@ const styles = StyleSheet.create({
     width: 124,
     height: 100,
     marginBottom: 3,
+    borderRadius: 10,
   },
   IdPedido: {
     fontSize: 16,

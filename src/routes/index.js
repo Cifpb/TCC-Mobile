@@ -8,6 +8,7 @@ import Plans from "../pages/Plans";
 import Profile from "../pages/profile";
 import Order1 from "../pages/order";
 import Filter from "../pages/clientFilter";
+import PlansProd from "../pages/ProductPlans";
 
 const Stack = createNativeStackNavigator();
 
@@ -61,6 +62,11 @@ export default function Routes() {
         <Stack.Screen
          name="Filter"
          component={Filter}
+         options={{headerShown: false}}
+        />
+        <Stack.Screen
+         name="PlansProd"
+         component={PlansProd}
          options={{headerShown: false}}
         />
 

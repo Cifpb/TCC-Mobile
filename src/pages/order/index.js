@@ -13,7 +13,7 @@ export default function Order1() {
     const navigation = useNavigation();
     return (
         <View style={styles.telaPedido} >
-            <TouchableOpacity onPress={() => navigation.navigate('Requests')}>
+            <TouchableOpacity onPress={() => navigation.navigate('Pedidos')}>
                 <Image style={styles.voltar} source={voltar} />
             </TouchableOpacity>
             <View style={styles.blocoPedido}>
@@ -78,7 +78,7 @@ const styles = StyleSheet.create({
     },
     blocosuperior: {
         flexDirection: 'row',
-        gap: 180,
+        gap: 150,
     },
     editar: {
         marginTop: 15,
@@ -161,7 +161,7 @@ const styles = StyleSheet.create({
     },
     botoes: {
         flexDirection: 'row',
-        marginLeft: 170,
+        marginLeft: 150,
         gap: 10,
     }
 })

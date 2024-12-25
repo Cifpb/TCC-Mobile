@@ -24,29 +24,12 @@ export default function SignIn() {
                     style={styles.input}
                     secureTextEntry
                 />
-
-                <TouchableOpacity style={styles.button} onPress={() => navegation.navigate('Home')}>
-                    <Text style={styles.buttonText}>Enviar</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.buttonRegister} onPress={() => navegation.navigate('Product')}>
-                    <Text style={styles.registerText}>Product</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.buttonRegister} onPress={() => navegation.navigate('Requests')}>
-                    <Text style={styles.registerText}>Pedidos</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.buttonRegister} onPress={() => navegation.navigate('Plans')}>
-                    <Text style={styles.registerText}>Planos</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.buttonRegister} onPress={() => navegation.navigate('Profile')}>
-                    <Text style={styles.registerText}>perfil</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.buttonRegister} onPress={() => navegation.navigate('Filter')}>
-                    <Text style={styles.registerText}>Busca cliente</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.buttonRegister} onPress={() => navegation.navigate('PlansProd')}>
-                    <Text style={styles.registerText}>Produtos e planos</Text>
-                </TouchableOpacity>
-
+                <TouchableOpacity
+    style={styles.button}
+    onPress={() => navegation.navigate('MainTabs', { screen: 'Requests' })}
+>
+    <Text style={styles.buttonText}>Enviar</Text>
+</TouchableOpacity>
             </Animatable.View>
         </View>
     );

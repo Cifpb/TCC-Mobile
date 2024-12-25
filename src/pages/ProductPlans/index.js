@@ -7,7 +7,7 @@ import { LinearGradient } from 'expo-linear-gradient';
 import React, { useState } from 'react';
 import { View, Text, Image, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
 
-export const produtos = [
+export const produto = [
   {
     id: 'logotipoP1',
     imgP: require('../../assets/produtos/img-virgens/projetosG.png'),
@@ -76,16 +76,16 @@ export const plano = [
 ];
 export default function MenuSuperior() {
     const navigation = useNavigation();
-    const [itemSelecionado, setItemSelecionado] = useState('Produtos');
+    const [itemSelecionado, setItemSelecionado] = useState('Produto');
   
     return (
       <View style={styles.tela}>
         <View style={styles.menuSuperior}>
           <TouchableOpacity
-            style={[styles.menuItem, itemSelecionado === 'Produtos' && styles.itemSelecionado]}
+            style={[styles.menuItem, itemSelecionado === 'Produto' && styles.itemSelecionado]}
             onPress={() => {
-              setItemSelecionado('Produtos');
-              navigation.navigate('Produtos');
+              setItemSelecionado('Produto');
+              navigation.navigate('Produto');
             }}
           >
             <Image style={styles.iconMenu} source={prod} />
@@ -105,8 +105,8 @@ export default function MenuSuperior() {
         </View>
   
         <ScrollView style={styles.produtosContainer}>
-          {itemSelecionado === 'Produtos' &&
-            produtos.map((item) => (
+          {itemSelecionado === 'Produto' &&
+            produto.map((item) => (
               <View key={item.id} style={styles.produto}>
                 <Image source={item.imgP} style={styles.imagemProd} />
                 <View style={styles.caixapai}>
@@ -180,6 +180,7 @@ export default function MenuSuperior() {
       flex: 1,
     },
     menuSuperior: {
+      marginTop: 30,
       height: 80,
       backgroundColor: 'black',
       flexDirection: 'row',

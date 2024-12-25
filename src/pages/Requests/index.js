@@ -111,8 +111,10 @@ export default function MenuSuperior() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: 'black',
   },
   menuSuperior: {
+    marginTop: 30,
     height: 80,
     backgroundColor: 'black',
     paddingVertical: 10,

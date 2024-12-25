@@ -231,7 +231,7 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end',
     gap: 15,
     marginTop: 20,
-    marginBottom: 40,
+    marginBottom: 80,
   },
   btsal: {
     backgroundColor: '#E0C200',

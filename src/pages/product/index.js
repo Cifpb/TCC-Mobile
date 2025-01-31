@@ -56,22 +56,19 @@ const Product = () => {
       <View style={styles.container}>
         <View style={styles.quadrado}>
           <Text style={styles.inf}>Informações principais</Text>
-          <Text style={styles.dado}>Categoria:</Text>
-          <Seletor data={data} placeholder="Selecionar Categoria" search={true} />
-          <Text style={styles.dado}>Subcategoria:</Text>
+          <Text style={styles.dado}>Nome do Produto:</Text>
 
           <TextInput style={styles.textInput}
             placeholder="Insira o nome do produto"
             placeholderTextColor={"#b08504"} />
-        </View>
-        <View style={styles.quadrado2}>
-          <Text style={styles.inf}>Informações secundárias</Text>
+        
+        
           <Text style={styles.dado}>Descrição:</Text>
           <TextInput style={styles.textInput}
             placeholder="Descreva as principais características "
             placeholderTextColor={"#b08504"}
             multiline={true} />
-          <Text style={styles.dado}>Preço PIX:</Text>
+          <Text style={styles.dado}>Preço:</Text>
           <TextInputMask
             style={styles.textInput}
             placeholder="Insira o valor"
@@ -83,21 +80,7 @@ const Product = () => {
             value={money1}
             onChangeText={text => setMoney1(text)}
           />
-          <Text style={styles.dado}>Preço cartão crédito/débito:</Text>
-          <TextInputMask
-            style={styles.textInput}
-            placeholder="Insira o valor"
-            placeholderTextColor={"#b08504"}
-            type={'money'}
-            options={{
-              maskType: 'BRL',
-            }}
-            value={money2}
-            onChangeText={text => setMoney2(text)}
-          />
-          <Text style={styles.dado}>Parcelamento:</Text>
-          <Seletor data={data} placeholder="Selecionar parcelamento" />
-        </View>
+          </View>
         <Text style={styles.inf}>Imagem principal (Web)</Text>
         <ImagePicker />
         <Text style={styles.tam}>tamanho recomendado: 000px x 000px</Text>
@@ -170,16 +153,9 @@ const styles = StyleSheet.create({
     borderColor: '#E0C200',
     padding: 10,
     borderRadius: 8,
-    height: 240
+    height: 370
   },
-  quadrado2: {
-    borderWidth: 2,
-    marginBottom: '8%',
-    borderColor: '#E0C200',
-    padding: 10,
-    borderRadius: 8,
-    height: 420
-  },
+  
   dado: {
     color: 'white',
     fontSize: 16,

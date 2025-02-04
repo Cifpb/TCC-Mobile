@@ -3,6 +3,7 @@ import prod from "../../assets/planoseprodutos/produto.png";
 import planos from "../../assets/planoseprodutos/planos.png";
 import Feather from '@expo/vector-icons/Feather';
 import Octicons from '@expo/vector-icons/Octicons';
+import adicionar from "../../assets/adicionar produto/icon2.png";
 import { LinearGradient } from 'expo-linear-gradient';
 import React, { useState } from 'react';
 import { View, Text, Image, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
@@ -135,6 +136,7 @@ export default function MenuSuperior() {
   
           {itemSelecionado === 'Planos' &&
             plano.map((item) => (
+              <View>
               <View key={item.id} style={styles.plano}>
                 <Image source={item.img} style={styles.imagemPlano} />
                 <View style={styles.conteudoDiv}>
@@ -168,9 +170,15 @@ export default function MenuSuperior() {
                   </View>
                 </View>
               </View>
+              </View>
+              
             ))}
         </ScrollView>
+        <TouchableOpacity onPress={() => {navigation.navigate('Plans')}}>
+        <Image source={adicionar} style={styles.adiciona} />
+        </TouchableOpacity>
       </View>
+      
     );
   }
   
@@ -319,5 +327,14 @@ export default function MenuSuperior() {
       flexDirection: 'row',
       gap: 25,
     },
+    adiciona: {
+      position: 'absolute',
+      bottom:70,// Distância do fundo da tela
+      right: 20,  // Distância da lateral direita
+      height: 50,
+      width: 50,
+      zIndex: 1, // Para garantir que o ícone fique por cima do conteúdo
+
+    }
   });
   

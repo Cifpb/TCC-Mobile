@@ -3,7 +3,7 @@ export default [
       id: 1,
       name: 'Beatriz Farias',
       email: 'bia.farias@gmail.com',
-      avatar: 'https://i.pravatar.cc/150?img=31',
+      a: 'https://i.pravatar.cc/150?img=31',
     },
     {
       id: 2,

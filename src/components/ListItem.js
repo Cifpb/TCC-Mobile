@@ -1,10 +1,11 @@
 import React from 'react';
+import foto from '../assets/perfil/foto.jpg';
 import { TouchableOpacity, View, Image, Text, StyleSheet } from 'react-native';
 
 const ListItem = ({ data }) => {
   return (
     <TouchableOpacity style={styles.item}>
-      <Image source={{ uri: data.avatar }} style={styles.itemPhoto} />
+      <Image source={foto} style={styles.itemPhoto} />
       <View style={styles.itemInfo}>
         <Text style={styles.nome1}>{data.name}</Text>
         <Text style={styles.email2}>{data.email}</Text>

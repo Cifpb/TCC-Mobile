@@ -2,7 +2,6 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Welcome from "../pages/welcome";
 import SignIn from "../pages/Signin";
-import Home from "../pages/Home";
 import Product from "../pages/product";
 import Requests from "../pages/Requests";
 import Plans from "../pages/Plans";
@@ -23,7 +22,7 @@ function TabRoutes() {
       screenOptions={{
         tabBarStyle: {
           backgroundColor: '#202020', 
-          height: 50,                
+          height: 55,                
           borderTopWidth: 0,  
           bottom: 14,
           position: 'absolute',

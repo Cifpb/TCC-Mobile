@@ -18,18 +18,15 @@ export default function Order1() {
             </TouchableOpacity>
             <View style={styles.blocoPedido}>
                 <View style={styles.blocosuperior}>
-                    <Text style={styles.idPed}>Pedido OPI65876</Text>
+                    <Text style={styles.idPed}>Pedido PED8S2XE</Text>
                     <Image style={styles.editar} source={editar} />
                 </View>
                 <View style={styles.imgsProds}>
-                    <Image style={styles.imgprod} source={ped} />
-                    <Image style={styles.imgprod} source={ped1} />
-                    <Image style={styles.imgprod} source={ped3} />
                     <Image style={styles.imgprod} source={ped2} />
-                    <Image style={styles.imgprod} source={ped} />
+                    <Image style={styles.imgprod} source={ped3} />
                 </View>
-                <Text style={styles.dataProds}>Data  da Solicitação: 29/09/2024</Text>
-                <Text style={styles.dataProds}>Data  de Conclusão: 10/10/2024</Text>
+                <Text style={styles.dataProds}>Data  da Solicitação: 11/02/2025</Text>
+                <Text style={styles.dataProds}>Prazo: 2 a 4 dias</Text>
                 <Text style={styles.idPed}>Pagamento</Text>
                 <View style={styles.parteinferior}>
                     <View style={styles.pagamento}>
@@ -38,7 +35,7 @@ export default function Order1() {
                     </View>
                     <View style={styles.total}>
                         <Text style={styles.totalPed}>ToTal:</Text>
-                        <Text style={styles.totalPed}>855,00</Text>
+                        <Text style={styles.totalPed}>400,00</Text>
                     </View>
                 </View>
                 <Text style={styles.idPed}>Cliente</Text>

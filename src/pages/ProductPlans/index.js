@@ -48,7 +48,7 @@ export const plano = [
     type: "Gold",
     value: "1000,00",
     promotion: "Novo",
-    img: require('../../assets/planos/imagens/plano1.png'),
+    img: require('../../assets/planos/imagens/gold.png'),
     content: "15 posts mensais. 15 stories mensais. Desenvolvimento das artes. Desenvolvimento do conteúdo.",
     document: require('../../assets/planos/documentos/DocPlano1.pdf'),
     emblem: ""
@@ -58,7 +58,7 @@ export const plano = [
     type: "Platinum",
     value: "1800,00",
     promotion: "10%",
-    img: require('../../assets/planos/imagens/plano1.png'),
+    img: require('../../assets/planos/imagens/platinum.png'),
     content: "24 posts mensais. 24 stories mensais. Desenvolvimento das artes. Gerenciamento de anúncios. Desenvolvimento do conteúdo.",
     document: require('../../assets/planos/documentos/DocPlano1.pdf'),
     emblem: "",
@@ -68,7 +68,7 @@ export const plano = [
     type: "Diamond",
     value: "2800,00",
     promotion: "",
-    img: require('../../assets/planos/imagens/plano1.png'),
+    img: require('../../assets/planos/imagens/diamond.png'),
     content: "Posts mensais LIVRE. Stories mensais LIVRE. Desenvolvimento das artes. Gerenciamento de anúncios. Desenvolvimento do conteúdo.",
     document: require('../../assets/planos/documentos/DocPlano1.pdf'),
     emblem: ""

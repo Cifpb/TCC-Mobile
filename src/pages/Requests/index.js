@@ -14,42 +14,25 @@ export default function MenuSuperior() {
   const [itemSelecionado, setItemSelecionado] = useState('Pedidos');
 
   const pedidosSolicitados = [
-    { id: 'GU57653', data: '12/10/2024', imagem: ped, total: "R$855,00" },
-    { id: 'JU77654', data: '10/10/2024', imagem: ped1, total: "R$567,00" },
-    { id: 'KH77655', data: '10/10/2024', imagem: ped2, total: "R$1.400,00" },
-    { id: 'JA77656', data: '08/10/2024', imagem: ped3, total: "R$300,00" },
-    { id: 'VM77657', data: '07/10/2024', imagem: ped, total: "R$0,00" },
-    { id: 'GU57653', data: '12/10/2024', imagem: ped2, total: "R$645,00" },
-    { id: 'JU77654', data: '10/10/2024', imagem: ped1, total: "R$2.100,00" },
-    { id: 'KH77655', data: '10/10/2024', imagem: ped, total: "R$250,00" },
-    { id: 'JA77656', data: '08/10/2024', imagem: ped3, total: "R$100,00" },
-    { id: 'VM77657', data: '07/10/2024', imagem: ped1, total: "R$0,00" },
+    { id: 'PED8S2XE', data: '11/02/2025', imagem: ped, total: "R$400,00" },
+    { id: 'PED7KP40', data: '10/02/2025', imagem: ped1, total: "R$1.600,00" },
+    { id: 'PED6TC90', data: '09/02/2025', imagem: ped2, total: "R$1.000,00" },
+    { id: 'PED5F12E', data: '09/02/2024', imagem: ped3, total: "R$800,00" },
+    { id: 'PED4G30A', data: '08/02/2024', imagem: ped, total: "R$300,00" },
   ];
 
   const pedidosEmAndamento = [
-    { id: 'GU57653', data: '12/10/2024', imagem: ped2, total: "R$567,00" },
-    { id: 'JU77654', data: '10/10/2024', imagem: ped1, total: "R$250,00" },
-    { id: 'KH77655', data: '10/10/2024', imagem: ped, total: "R$0,00" },
-    { id: 'JA77656', data: '08/10/2024', imagem: ped3, total: "R$1.400,00" },
-    { id: 'VM77657', data: '07/10/2024', imagem: ped1, total: "R$645,00" },
-    { id: 'GU57653', data: '12/10/2024', imagem: ped, total: "R$0,00" },
-    { id: 'JU77654', data: '10/10/2024', imagem: ped1, total: "R$567,00" },
-    { id: 'KH77655', data: '10/10/2024', imagem: ped2, total: "R$1.400,00" },
-    { id: 'JA77656', data: '08/10/2024', imagem: ped3, total: "R$0,00" },
-    { id: 'VM77657', data: '07/10/2024', imagem: ped, total: "R$250,00" },
+    { id: 'PED3F5D1', data: '08/02/2025', imagem: ped2, total: "R$400,00" },
+    { id: 'PED4D7R9', data: '07/02/2025', imagem: ped1, total: "R$1.000,00" },
+    { id: 'PED5G6V8', data: '07/02/2025', imagem: ped, total: "R$150,00" },
+    { id: 'PED6H0N1', data: '06/02/2025', imagem: ped3, total: "R$1.400,00" },
+    { id: 'PED2K1M5', data: '05/02/2025', imagem: ped1, total: "R$950,00" },
   ];
 
   const pedidosConcluidos = [
-    { id: 'GU57653', data: '12/10/2024', imagem: ped3, total: "R$0,00" },
-    { id: 'JU77654', data: '10/10/2024', imagem: ped2, total: "R$1.400,00" },
-    { id: 'KH77655', data: '10/10/2024', imagem: ped1, total: "R$567,00" },
-    { id: 'JA77656', data: '08/10/2024', imagem: ped, total: "R$855,00" },
-    { id: 'VM77657', data: '07/10/2024', imagem: ped3, total: "R$345,00" },
-    { id: 'GU57653', data: '12/10/2024', imagem: ped, total: "R$0,00" },
-    { id: 'JU77654', data: '10/10/2024', imagem: ped1, total: "R$100,00" },
-    { id: 'KH77655', data: '10/10/2024', imagem: ped2, total: "R$567,00" },
-    { id: 'JA77656', data: '08/10/2024', imagem: ped3, total: "R$1.400,00" },
-    { id: 'VM77657', data: '07/10/2024', imagem: ped, total: "R$0,00" },
+    { id: 'PED0W3Q8', data: '05/02/2025', imagem: ped3, total: "R$800,00" },
+    { id: 'PED1Y5F3', data: '06/02/2025', imagem: ped2, total: "R$1.400,00" },
+    { id: 'PED2P0G0', data: '10/02/2024', imagem: ped1, total: "R$400,00" },
   ];
 
   const getPedidos = () => {

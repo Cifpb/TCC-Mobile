@@ -155,11 +155,6 @@ export default function MenuSuperior() {
                   })}
                 </View>
                 <View style={styles.elementosPlanos}>
-                  <LinearGradient style={styles.botaoCard} colors={["#FFD54F", "#FFB300"]}>
-                    <TouchableOpacity>
-                      <Text style={styles.textoBntCard}>ACESSAR DOC</Text>
-                    </TouchableOpacity>
-                  </LinearGradient>
                   <View style={styles.iconesPlano}>
                     <TouchableOpacity>
                       <Feather name="trash-2" size={18} color="white" />
@@ -216,6 +211,7 @@ export default function MenuSuperior() {
     },
     produtosContainer: {
       padding: 10,
+      marginBottom:60,
     },
     produto: {
       backgroundColor: '#414141',
@@ -318,22 +314,18 @@ export default function MenuSuperior() {
       width: '45%',
       alignItems: 'center',
     },
-    textoBntCard: {
-      color: 'white',
-      fontWeight: 'bold',
-      fontSize: 14,
-    },
     iconesPlano: {
       flexDirection: 'row',
       gap: 25,
+      left:210,
     },
     adiciona: {
       position: 'absolute',
-      bottom:70,// Distância do fundo da tela
-      right: 20,  // Distância da lateral direita
+      bottom:70,
+      right: 20,  
       height: 50,
       width: 50,
-      zIndex: 1, // Para garantir que o ícone fique por cima do conteúdo
+      zIndex: 1, 
 
     }
   });

@@ -21,17 +21,9 @@ export default function Plans() {
             placeholder="Descreva as característica do plano"
             placeholderTextColor={"#b08504"}
             multiline={true} />
-          <Text style={styles.dado}>Porcentagem:</Text>
-          <TextInput style={styles.textInput}
-            placeholder="Insira a porcentagem"
-            placeholderTextColor={"#b08504"}
-          />
         </View>
         <View>
           <Text style={styles.inf}>Imagem principal do plano</Text>
-          <ImagePicker />
-          <Text style={styles.tam}>tamanho recomendado: 000px x 000px</Text>
-          <Text style={styles.inf}>Upload documento</Text>
           <ImagePicker />
           <Text style={styles.tam}>tamanho recomendado: 000px x 000px</Text>
         </View>
@@ -73,7 +65,7 @@ const styles = StyleSheet.create({
     borderColor: '#E0C200',
     padding: 10,
     borderRadius: 8,
-    height: 330
+    height: 260
   },
   inf: {
     color: 'white',

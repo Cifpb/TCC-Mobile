@@ -80,23 +80,17 @@ const Product = () => {
             value={money1}
             onChangeText={text => setMoney1(text)}
           />
-          </View>
-        <Text style={styles.inf}>Imagem principal (Web)</Text>
-        <ImagePicker />
-        <Text style={styles.tam}>tamanho recomendado: 000px x 000px</Text>
-
-        <Text style={styles.inf}>Imagem principal (Mobile)</Text>
-        <ImagePicker />
-        <Text style={styles.tam}>tamanho recomendado: 000px x 000px</Text>
-
-        <View style={styles.addtela}>
-          <Text style={styles.pri}>Principais trabalhos</Text>
-          <Switch
-            trackColor={{ false: '#626262', true: '#333131' }}
-            thumbColor={isEnabled ? '#E0C200' : '#f4f3f4'}
-            ios_backgroundColor="#3e3e3e"
-            onValueChange={toggleSwitch}
-            value={isEnabled}
+            <Text style={styles.dado}> Oferta:</Text>
+            <TextInputMask
+            style={styles.textInput}
+            placeholder="Insira a porcentagem"
+            placeholderTextColor={"#b08504"}
+            type={'money'}
+            options={{
+              maskType: 'BRL',
+            }}
+            value={money2}
+            onChangeText={text => setMoney2(text)}
           />
         </View>
         <Text style={styles.inf}>Imagem principal (Principais trabalhos)</Text>
@@ -153,7 +147,7 @@ const styles = StyleSheet.create({
     borderColor: '#E0C200',
     padding: 10,
     borderRadius: 8,
-    height: 370
+    height: 430,
   },
   
   dado: {

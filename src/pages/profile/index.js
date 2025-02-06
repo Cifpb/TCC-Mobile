@@ -31,8 +31,10 @@ return (
   <Text style={styles.nome}>{cpf}</Text>
   <Text style={styles.dado}>Telefone:</Text>
   <Text style={styles.nome}>{telefone}</Text>
-    <Text style={styles.dado}>Plano:</Text>
-            <Seletor data={data} placeholder="Selecione um plano" />
+  <Text style={styles.dado}>Data de Nascimento:</Text>
+  <Text style={styles.nome}>{telefone}</Text>
+  <Text style={styles.dado}>Localização:</Text>
+  <Text style={styles.nome}>{telefone}</Text>
  </View>
 </View>
 

@@ -39,10 +39,10 @@ export default function Order1() {
                     </View>
                 </View>
                 <Text style={styles.idPed}>Cliente</Text>
-                <View style={styles.cliente}>
+                <TouchableOpacity style={styles.cliente} onPress={() => navigation.navigate('Profile')}>
                     <Image style={styles.perfil} source={perfil} />
                     <Text style={styles.nomecliente}>Maria Beatriz Dias da Silva</Text>
-                </View>
+                </TouchableOpacity>
                 <View style={styles.botoes}>
                     <TouchableOpacity style={styles.negar}>
                         <Text style={styles.textoBotao}>Negar</Text>
@@ -63,7 +63,8 @@ const styles = StyleSheet.create({
     voltar: {
         width: 35,
         height: 45,
-        margin: 15
+        marginLeft: 15,
+        marginTop: 20,
     },
     blocoPedido: {
         margin: "2%",

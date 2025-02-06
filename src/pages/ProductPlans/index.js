@@ -11,7 +11,7 @@ import { View, Text, Image, StyleSheet, TouchableOpacity, ScrollView } from 'rea
 export const produto = [
   {
     id: 'logotipoP1',
-    imgP: require('../../assets/produtos/img-virgens/projetosG.png'),
+    imgP: require('../../assets/produtos/logotipo.png'),
     category: 'MÍDIA VISUAL',
     subCategory: 'Logotipo',
     promotion: "",
@@ -19,7 +19,7 @@ export const produto = [
   },
   {
     id: 'flyerP2',
-    imgP: require('../../assets/produtos/img-virgens/projetosG.png'),
+    imgP: require('../../assets/produtos/flyer.png'),
     category: 'MÍDIA VISUAL',
     subCategory: 'Flyer',
     promotion: "Novo",
@@ -27,7 +27,7 @@ export const produto = [
   },
   {
     id: 'motionP3',
-    imgP: require('../../assets/produtos/img-virgens/projetosG.png'),
+    imgP: require('../../assets/produtos/motion.png'),
     category: 'MÍDIA VISUAL',
     subCategory: 'Motion',
     promotion: "10%",
@@ -35,7 +35,7 @@ export const produto = [
   },
   {
     id: 'projetosGrafP4',
-    imgP: require('../../assets/produtos/img-virgens/projetosG.png'),
+    imgP: require('../../assets/produtos/proj.png'),
     category: 'MÍDIA VISUAL',
     subCategory: 'Projetos Gráficos',
     promotion: "Novo",
@@ -169,9 +169,11 @@ export default function MenuSuperior() {
               
             ))}
         </ScrollView>
-        <TouchableOpacity onPress={() => {navigation.navigate('Plans')}}>
-        <Image source={adicionar} style={styles.adiciona} />
-        </TouchableOpacity>
+        {itemSelecionado === 'Planos' && (
+  <TouchableOpacity onPress={() => { navigation.navigate('Plans') }}>
+    <Image source={adicionar} style={styles.adiciona} />
+  </TouchableOpacity>
+)}
       </View>
       
     );

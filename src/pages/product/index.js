@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, TextInput, View, ScrollView, Image, Switch, TouchableOpacity } from 'react-native';
-import { Dropdown } from 'react-native-element-dropdown';
-import Seletor from '../../components/Dropdown';
 import { TextInputMask } from 'react-native-masked-text';
 import ImagePicker from '../../components/ImagePicker';
 import { useNavigation } from "@react-navigation/native";

@@ -1,105 +1,114 @@
-import React, { useState } from 'react';
-import { StyleSheet, Text, TextInput, View, ScrollView, Image, Switch, TouchableOpacity } from 'react-native';
+import React from 'react';
+import { StyleSheet, Text, View, ScrollView, Image, TouchableOpacity } from 'react-native';
+import * as Animatable from 'react-native-animatable';
 import { useNavigation } from '@react-navigation/native';
-import Seletor from '../../components/Dropdown';
-import foto from "../../assets/perfil/fotoperfil.png"
+import editar from "../../assets/pedidos/cards/lapis.png";
+import foto from "../../assets/perfil/foto.jpg";
 
-export default function Profile () {
-const navegation = useNavigation();
+export default function Profile() {
+    const navigation = useNavigation();
 
-const nome = "Maria Beatriz";
-const cpf = "000.000.000-00";
-const telefone = "(00) 0 0000-0000";
+    const nome = "Maria Beatriz Dias da Silva";
+    const email = "bia4056@gmail.com";
+    const cpf = "000.000.000-00";
+    const telefone = "(12) 3 4567-8910";
+    const dataN = "26/07/2006";
+    const localizacao = "----";
 
-const data = [
-    { label: 'Nenhum', value: '1' },
-    { label: 'Gold', value: '2' },
-    { label: 'Platinum', value: '3' },
-    { label: 'Diamond', value: '4' },
-];
+    return (
+   
+        <View style={styles.container}>
+            <Animatable.View animation="fadeInLeft" delay={300} style={styles.containerHeader}>
+                <Text style={styles.message}>Perfil</Text>
+            </Animatable.View>
+            <Animatable.View animation="fadeInUp" delay={300} style={styles.containerForm}>
+    <TouchableOpacity style={styles.lapisContainer}>
+        <Image style={styles.lapis} source={editar} />
+    </TouchableOpacity>
+    <View style={styles.profileHeader}>
+        <Image style={styles.fotoperfil} source={foto} />
+    </View>
+    
+    <Text style={styles.label}>Nome:</Text>
+    <Text style={styles.info}>{nome}</Text>
+    <Text style={styles.label}>E-mail:</Text>
+    <Text style={styles.info}>{email}</Text>
+    <Text style={styles.label}>CPF:</Text>
+    <Text style={styles.info}>{cpf}</Text>
+    <Text style={styles.label}>Telefone:</Text>
+    <Text style={styles.info}>{telefone}</Text>
+    <Text style={styles.label}>Data de Nascimento:</Text>
+    <Text style={styles.info}>{dataN}</Text>
+    <Text style={styles.label}>Localização:</Text>
+    <Text style={styles.info}>{localizacao}</Text>
+</Animatable.View>
 
-return (
- <ScrollView style={styles.scrollView}>
-  <View style={styles.container}>
- <View style={styles.quadrado}>
-<View style= {styles.perfil}>
-<Image style={styles.fotoperfil} source={foto} />
-</View>
-  <Text style={styles.dado}>Nome:</Text>
-  <Text style={styles.nome}>{nome}</Text>
-  <Text style={styles.dado}>CPF:</Text>
-  <Text style={styles.nome}>{cpf}</Text>
-  <Text style={styles.dado}>Telefone:</Text>
-  <Text style={styles.nome}>{telefone}</Text>
-  <Text style={styles.dado}>Data de Nascimento:</Text>
-  <Text style={styles.nome}>{telefone}</Text>
-  <Text style={styles.dado}>Localização:</Text>
-  <Text style={styles.nome}>{telefone}</Text>
- </View>
-</View>
-
-
- </ScrollView>
-);
+        </View>
+        
+    );
 }
 
 const styles = StyleSheet.create({
-    scrollView: {
+    container: {
         flex: 1,
-        backgroundColor: 'black'
-      },
-      container: {
-        backgroundColor: 'black',
-        padding: 16,
-        alignContent: 'center',
+        backgroundColor: '#F2B707',
+    },
+    containerHeader: {
+      marginTop: '12%',
+      marginBottom: '5%',
+      paddingStart: '5%',
+      position: 'relative',
+    },
+    message: {
+        fontSize: 28,
+        fontWeight: 'bold',
+        color: '#161413',
+        marginTop: 10,
+    },
+    lapisContainer: {
+      position: 'absolute',
+      top: 15,
+      right: 20,
+      zIndex: 10, 
+  },
+    lapis: {
+        width: 30,
+        height: 30,
+    },
+    containerForm: {
+        backgroundColor: '#161413',
         flex: 1,
-        color: 'black'
-      },
-      quadrado: {
+        borderTopLeftRadius: 25,
+        borderTopRightRadius: 25,
+        paddingStart: '5%',
+        paddingEnd: '5%',
+        paddingVertical: 20,
+    },
+    profileHeader: {
+        alignItems: 'center',
+        marginTop: -50,
+        marginBottom: 20,
+    },
+    fotoperfil: {
+        width: 100,
+        height: 100,
+        borderColor: '#E0C200',
         borderWidth: 2,
-        marginBottom: '5%',
-        marginTop: '20%',
-        borderColor: '#E0C200',
-        padding: 10,
-        borderRadius: 8,
-        height: 650,
-        gap: 10,
-      },
-      dado: {
-        color: 'white',
-        fontSize: 16,
-        padding: '2%',
-      },
-      textInput: {
-        backgroundColor: 'black',
-        color: 'white',
-        borderRadius: 10,
-        borderColor: '#E0C200',
-        borderWidth: 0.5,
-        padding: 10,
-        marginBottom: 10,
-        height: 50,
-        fontSize: 16,
-      },
-      nome: {
-        color: '#E0C200',  
+        borderRadius: 50,
+    },
+    label: {
+        fontSize: 18,
+        color: '#F2B707',
+        marginTop: 10,
+    },
+    info: {
+        color: '#ffffff',  
         fontSize: 16,    
-        padding: '4%',   
-        backgroundColor: 'black', 
-        borderColor: '#E0C200',
+        padding: 10,   
+        backgroundColor: '#2e2d2d', 
+        borderColor: '#F2B707',
         borderWidth: 1,
-        borderRadius: 12,
-      },
-      fotoperfil: {
-        width: 60,
-        height: 60,
-        borderColor: '#E0C200',
-        borderWidth: 1,
-        borderRadius: 30,
+        borderRadius: 10,
+        marginBottom: 10,
     },
-    perfil: {
-        marginTop: 6,
-       alignItems: "center",
-    },
-
 });

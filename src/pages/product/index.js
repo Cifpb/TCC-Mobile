@@ -62,14 +62,6 @@ const Product = () => {
             value={money2}
             onChangeText={text => setMoney2(text)}
           />
-
-            <Text style={styles.dado}>Prazo estimado para produção:</Text>
-            <TextInput 
-              style={styles.textInput}
-              placeholder="2 a 4 dias"
-              placeholderTextColor={"#b08504"}
-              multiline 
-            />
           </View>
 
           
